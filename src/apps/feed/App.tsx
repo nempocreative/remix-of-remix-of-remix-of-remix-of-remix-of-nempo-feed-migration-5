@@ -35,6 +35,7 @@ const GGS_LAYANAN_PNGS: Record<number, string> = {
 import ggsPromoSpesialVideo from '@/assets/ggs-feed-10-promo-spesial.mp4';
 import ggsWeAreOpenVideo from '@/assets/ggs-feed-12-we-are-open.mp4';
 import { PrebuiltPngDownload } from './components/PrebuiltPngDownload';
+import { PrebuiltFileDownload } from './components/PrebuiltFileDownload';
 import {
   FaFileExcel,
   FaFileWord,
@@ -2773,6 +2774,7 @@ function App() {
   const [isDownloading, setIsDownloading] = useState(false);
   const [preparedNempoPng, setPreparedNempoPng] = useState<{
     url: string;
+    blob: Blob;
     fileName: string;
     key: string;
   } | null>(null);
@@ -3045,7 +3047,7 @@ function App() {
         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
       if (isAppleTouchBrowser) {
-        setPreparedNempoPng({ url: generatedObjectUrl, fileName, key: currentDownloadKey });
+        setPreparedNempoPng({ url: generatedObjectUrl, blob: pngBlob, fileName, key: currentDownloadKey });
         return;
       }
 
@@ -3249,61 +3251,61 @@ function App() {
             Q Card MC
           </button>
         </div>
-        {isGgsMen && <div className="mb-3"><Button asChild><a href={ggsMenVideo.url} download="GGS-Cowok-Pilihan-Rambut.mp4"><Download className="h-4 w-4" aria-hidden="true" />Download video · MP4</a></Button></div>}
+        {isGgsMen && <div className="mb-3"><Button asChild><PrebuiltFileDownload src={ggsMenVideo.url} fileName="GGS-Cowok-Pilihan-Rambut.mp4"><Download className="h-4 w-4" aria-hidden="true" />Download video · MP4</PrebuiltFileDownload></Button></div>}
         {!isGgsMen && !isCoupon && !isQCard && !isSpreadsheet && !isRundown && !isBumper && (
           <div className="mb-3 flex flex-col items-center gap-2">
             {activeFeed === 'client' && activeClientSlide === 12 ? (
               <Button asChild>
-                <a href={ggsWeAreOpenVideo} download="GGS-Feed-12-We-Are-Open.mp4">
+                <PrebuiltFileDownload src={ggsWeAreOpenVideo} fileName="GGS-Feed-12-We-Are-Open.mp4">
                   <Download className="h-4 w-4" aria-hidden="true" />
                   Download video · MP4
-                </a>
+                </PrebuiltFileDownload>
               </Button>
             ) : activeFeed === 'client' && activeClientSlide === 10 ? (
               <>
-                <a
-                  href={ggsPromoSpesialVideo}
-                  download="GGS-Feed-10-Promo-Spesial.mp4"
+                <PrebuiltFileDownload
+                  src={ggsPromoSpesialVideo}
+                  fileName="GGS-Feed-10-Promo-Spesial.mp4"
                   className="inline-flex items-center gap-2 rounded-full bg-[#062f4d] px-4 py-2 text-[11px] font-black text-white shadow-[0_8px_20px_rgba(0,40,78,0.2)] transition-colors hover:bg-[#0b4d69] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffdd00] focus-visible:ring-offset-2"
                 >
                   <Download className="h-3.5 w-3.5" aria-hidden="true" />
                   Download video · MP4
-                </a>
+                </PrebuiltFileDownload>
                 <p className="max-w-[92vw] text-center text-[10px] font-medium text-slate-600">
                   Video 16 detik · 1080×1440 · 30 fps, persis seperti pratinjau.
                 </p>
               </>
             ) : activeFeed === 'client' && activeClientSlide === 23 ? (
               <Button asChild>
-                <a href={ggsOpenHoursVideo.url} download="GGS-Feed-23-We-Are-Open.mp4">
+                <PrebuiltFileDownload src={ggsOpenHoursVideo.url} fileName="GGS-Feed-23-We-Are-Open.mp4">
                   <Download className="h-4 w-4" aria-hidden="true" />
                   Download video · MP4
-                </a>
+                </PrebuiltFileDownload>
               </Button>
             ) : activeFeed === 'client' && (activeClientSlide === 21 || activeClientSlide === 22) ? (
               <>
-                <a
-                  href={activeClientSlide === 21 ? ggsNailCardsVideo.url : ggsHairCardsVideo.url}
-                  download={activeClientSlide === 21 ? 'GGS-Feed-21-Pilih-Nail-Art.mp4' : 'GGS-Feed-22-Pilih-Model-Rambut.mp4'}
+                <PrebuiltFileDownload
+                  src={activeClientSlide === 21 ? ggsNailCardsVideo.url : ggsHairCardsVideo.url}
+                  fileName={activeClientSlide === 21 ? 'GGS-Feed-21-Pilih-Nail-Art.mp4' : 'GGS-Feed-22-Pilih-Model-Rambut.mp4'}
                   className="inline-flex items-center gap-2 rounded-full bg-[#062f4d] px-4 py-2 text-[11px] font-black text-white shadow-[0_8px_20px_rgba(0,40,78,0.2)] transition-colors hover:bg-[#0b4d69] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffdd00] focus-visible:ring-offset-2"
                 >
                   <Download className="h-3.5 w-3.5" aria-hidden="true" />
                   Download video · MP4
-                </a>
+                </PrebuiltFileDownload>
                 <p className="max-w-[92vw] text-center text-[10px] font-medium text-slate-600">
                   Video 15 detik · 1080×1440 · 30 fps · kualitas tinggi, persis seperti pratinjau.
                 </p>
               </>
             ) : isGgsRatusVideoSlide ? (
               <>
-                <a
-                  href={ggsRatusVideo.url}
-                  download={`GGS-Feed-0${activeClientSlide}-Promo-Ratus.mp4`}
+                <PrebuiltFileDownload
+                  src={ggsRatusVideo.url}
+                  fileName={`GGS-Feed-0${activeClientSlide}-Promo-Ratus.mp4`}
                   className="inline-flex items-center gap-2 rounded-full bg-[#062f4d] px-4 py-2 text-[11px] font-black text-white shadow-[0_8px_20px_rgba(0,40,78,0.2)] transition-colors hover:bg-[#0b4d69] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffdd00] focus-visible:ring-offset-2"
                 >
                   <Download className="h-3.5 w-3.5" aria-hidden="true" />
                   Download video · MP4
-                </a>
+                </PrebuiltFileDownload>
                 <p className="max-w-[92vw] text-center text-[10px] font-medium text-slate-600">
                   Video {activeClientSlide === 7 ? 20 : 15} detik · 1080×1440 · 30 fps.
                 </p>
@@ -3339,6 +3341,17 @@ function App() {
                 <a
                   href={preparedNempoPng.url}
                   download={preparedNempoPng.fileName}
+                  onClick={(event) => {
+                    const file = new File([preparedNempoPng.blob], preparedNempoPng.fileName, { type: 'image/png' });
+                    if (navigator.canShare?.({ files: [file] })) {
+                      event.preventDefault();
+                      navigator.share({ files: [file], title: preparedNempoPng.fileName }).catch((error: DOMException) => {
+                        if (error?.name !== 'AbortError') {
+                          setDownloadError('Simpan langsung diblokir di pratinjau. Coba dari situs yang sudah dipublikasikan.');
+                        }
+                      });
+                    }
+                  }}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-[#062f4d] px-4 py-2 text-[11px] font-black text-white shadow-[0_8px_20px_rgba(0,40,78,0.2)] transition-colors hover:bg-[#0b4d69] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffdd00] focus-visible:ring-offset-2"
@@ -3376,14 +3389,14 @@ function App() {
             )}
             {isNempoFeed && (activeSlide === 33 || activeSlide === 34) && (
               <>
-                <a
-                  href={activeSlide === 34 ? slide34VideoAsset.url : slide33VideoAsset.url}
-                  download={`Nempo-Feed-Slide-${activeSlide}-MusiComedy-Night.mp4`}
+                <PrebuiltFileDownload
+                  src={activeSlide === 34 ? slide34VideoAsset.url : slide33VideoAsset.url}
+                  fileName={`Nempo-Feed-Slide-${activeSlide}-MusiComedy-Night.mp4`}
                   className="inline-flex items-center gap-2 rounded-full bg-[#062f4d] px-4 py-2 text-[11px] font-black text-white shadow-[0_8px_20px_rgba(0,40,78,0.2)] transition-colors hover:bg-[#0b4d69] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffdd00] focus-visible:ring-offset-2"
                 >
                   <Download className="h-3.5 w-3.5" aria-hidden="true" />
                   Download video · MP4
-                </a>
+                </PrebuiltFileDownload>
                 <p className="max-w-[92vw] text-center text-[10px] font-medium text-slate-600">
                   Video 30 detik · 1080×1440 · 30 fps, persis seperti pratinjau.
                 </p>
@@ -3391,14 +3404,14 @@ function App() {
             )}
             {isNempoFeed && (activeSlide === 35 || activeSlide === 36) && (
               <>
-                <a
-                  href={activeSlide === 35 ? slide35VideoAsset.url : slide36VideoAsset.url}
-                  download={activeSlide === 35 ? 'Nempo-Feed-Slide-35-Kala-Muda-Team.mp4' : 'Nempo-Feed-Slide-36-Kala-Muda-Daftar.mp4'}
+                <PrebuiltFileDownload
+                  src={activeSlide === 35 ? slide35VideoAsset.url : slide36VideoAsset.url}
+                  fileName={activeSlide === 35 ? 'Nempo-Feed-Slide-35-Kala-Muda-Team.mp4' : 'Nempo-Feed-Slide-36-Kala-Muda-Daftar.mp4'}
                   className="inline-flex items-center gap-2 rounded-full bg-[#062f4d] px-4 py-2 text-[11px] font-black text-white shadow-[0_8px_20px_rgba(0,40,78,0.2)] transition-colors hover:bg-[#0b4d69] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffdd00] focus-visible:ring-offset-2"
                 >
                   <Download className="h-3.5 w-3.5" aria-hidden="true" />
                   Download video · MP4
-                </a>
+                </PrebuiltFileDownload>
                 <p className="max-w-[92vw] text-center text-[10px] font-medium text-slate-600">
                   Video 15 detik · 1080×1440 · 30 fps, persis seperti pratinjau.
                 </p>
@@ -3406,14 +3419,14 @@ function App() {
             )}
             {isNempoFeed && activeSlide === 32 && (
               <>
-                <a
-                  href={slide32VideoAsset.url}
-                  download="Nempo-Feed-Slide-32-MusiComedy-Night.mp4"
+                <PrebuiltFileDownload
+                  src={slide32VideoAsset.url}
+                  fileName="Nempo-Feed-Slide-32-MusiComedy-Night.mp4"
                   className="inline-flex items-center gap-2 rounded-full bg-[#062f4d] px-4 py-2 text-[11px] font-black text-white shadow-[0_8px_20px_rgba(0,40,78,0.2)] transition-colors hover:bg-[#0b4d69] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffdd00] focus-visible:ring-offset-2"
                 >
                   <Download className="h-3.5 w-3.5" aria-hidden="true" />
                   Download video · MP4
-                </a>
+                </PrebuiltFileDownload>
                 <p className="max-w-[92vw] text-center text-[10px] font-medium text-slate-600">
                   Video 30 detik · 1080×1440 · 30 fps, persis seperti pratinjau.
                 </p>
