@@ -123,7 +123,7 @@ function NempoFooter() {
   );
 }
 
-function TeamBackdrop() {
+function TeamBackdrop({ icons = true }: { icons?: boolean }) {
   return (
     <div className="kmt-bg" aria-hidden="true">
       <span className="kmt-grid" />
@@ -131,9 +131,11 @@ function TeamBackdrop() {
       <span className="kmt-ring kmt-ring-b" />
       <span className="kmt-band" />
       <span className="kmt-word">KALA MUDA</span>
-      <span className="kmt-spark kmt-spark-a"><Camera strokeWidth={2.2} /></span>
-      <span className="kmt-spark kmt-spark-b"><Laptop strokeWidth={2.2} /></span>
-      <span className="kmt-spark kmt-spark-c"><Palette strokeWidth={2.2} /></span>
+      {icons && <>
+        <span className="kmt-spark kmt-spark-a"><Camera strokeWidth={2.2} /></span>
+        <span className="kmt-spark kmt-spark-b"><Laptop strokeWidth={2.2} /></span>
+        <span className="kmt-spark kmt-spark-c"><Palette strokeWidth={2.2} /></span>
+      </>}
       <span className="kmt-dots" />
     </div>
   );
@@ -194,7 +196,7 @@ function InfoSlide({ exportRef, slideNumber }: { exportRef?: RefObject<HTMLEleme
         role="img"
         aria-label={`Gabung Kala Muda Creative Team. Siapa yang bisa daftar: ${INFO_WHO.join(', ')}. Pilihan divisi: ${INFO_DIVISIONS.join(', ')}. Cara daftar: ${INFO_STEPS.join('; ')}. Daftar via WhatsApp 0857-2498-1356, tanpa biaya.`}
       >
-        <TeamBackdrop />
+        <TeamBackdrop icons={false} />
         <NempoHeader badge="OPEN RECRUITMENT" />
         <h2 className="kmi-title" aria-hidden="true">
           Gabung <em>Kala Muda</em> Creative Team
