@@ -1,0 +1,235 @@
+/* GGS Feed slide 10 — Promo Spesial. One 16 s timeline (--ggp-t); every
+   periodic loop divides 16 s so the preview and the MP4 loop cleanly. */
+.ggp-root {
+  --ggp-t: 16s;
+  --ggp-phase: 4s;
+  --ggp-magenta: #c2186b;
+  --ggp-hot: #e0218a;
+  --ggp-plum: #4a0e33;
+  --ggp-blush: #ffe3f0;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  container-type: inline-size;
+  background: #fde4ef;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ggp-plum);
+}
+.ggp-root img { user-select: none; }
+.ggp-root p, .ggp-root h2 { margin: 0; }
+
+/* Photo with a slow, seamless zoom */
+.ggp-scene { position: absolute; inset: 0; overflow: hidden; }
+.ggp-scene img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 50% 64%;
+  transform-origin: 50% 45%;
+  animation: ggp-zoom var(--ggp-t) ease-in-out infinite;
+}
+@keyframes ggp-zoom {
+  0%, 100% { transform: scale(1.03); }
+  50% { transform: scale(1.1); }
+}
+.ggp-shade {
+  position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(40,10,25,.38) 0%, rgba(40,10,25,0) 13%),
+    radial-gradient(ellipse 62% 26% at 18% 25%, rgba(255,236,245,.95) 0%, rgba(255,236,245,.78) 48%, rgba(255,236,245,0) 100%),
+    linear-gradient(0deg, rgba(74,14,51,.45) 0%, rgba(74,14,51,0) 34%);
+}
+.ggp-watermark {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; z-index: 6; pointer-events: none;
+}
+
+/* Floating glitter (8 s rise, divides 16 s) */
+.ggp-glitter { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.ggp-glitter i {
+  position: absolute;
+  left: calc(8cqw + var(--i) * 11.5cqw);
+  bottom: 22cqw;
+  width: 1.2cqw;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, #fff 0%, #ffd1e8 45%, rgba(255,111,180,0) 72%);
+  opacity: 0;
+  animation: ggp-rise 8s linear infinite;
+  animation-delay: calc(var(--i) * -1s);
+}
+.ggp-glitter i:nth-child(3n) { width: 1.8cqw; }
+.ggp-glitter i:nth-child(3n + 1) { width: .9cqw; }
+@keyframes ggp-rise {
+  0% { transform: translateY(0) scale(.6); opacity: 0; }
+  15% { opacity: .95; }
+  70% { opacity: .7; }
+  100% { transform: translateY(-62cqw) scale(1.2); opacity: 0; }
+}
+
+/* Headline */
+.ggp-head { position: absolute; z-index: 3; left: 7cqw; top: 21cqw; }
+.ggp-kicker {
+  display: flex; align-items: center; gap: 2cqw;
+  font-size: 2.8cqw; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap;
+}
+.ggp-kicker-line {
+  width: 7cqw; height: .55cqw; border-radius: 1cqw;
+  background: linear-gradient(90deg, var(--ggp-hot), #ff9bcd);
+  transform-origin: left center;
+  animation: ggp-line var(--ggp-phase) ease-in-out infinite;
+}
+@keyframes ggp-line {
+  0%, 100% { transform: scaleX(.45); }
+  50% { transform: scaleX(1); }
+}
+.ggp-title {
+  margin-top: 1.4cqw !important;
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700; font-size: 11.5cqw; line-height: .98;
+}
+.ggp-title-word {
+  display: block; white-space: nowrap;
+  background: linear-gradient(100deg, var(--ggp-magenta) 0%, var(--ggp-magenta) 38%, #ff8cc6 48%, var(--ggp-magenta) 58%, var(--ggp-magenta) 100%);
+  background-size: 260% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: ggp-shimmer var(--ggp-phase) ease-in-out infinite;
+}
+.ggp-title-word--2 { font-style: italic; font-weight: 500; padding-right: 2cqw; animation-delay: -.6s; }
+@keyframes ggp-shimmer {
+  0%, 35% { background-position: 100% 0; }
+  75%, 100% { background-position: 0% 0; }
+}
+
+/* Spinning badge */
+.ggp-badge {
+  position: absolute; z-index: 3; right: 6cqw; top: 19cqw;
+  width: 23cqw; aspect-ratio: 1;
+  display: grid; place-items: center;
+  animation: ggp-bob var(--ggp-phase) ease-in-out infinite;
+}
+.ggp-badge::before {
+  content: ''; position: absolute; inset: 0; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, #ff9bcd 0%, var(--ggp-hot) 55%, #a50d55 100%);
+  box-shadow: 0 1.6cqw 4cqw rgba(74,14,51,.35), inset 0 0 0 .5cqw rgba(255,255,255,.35);
+}
+.ggp-badge-ring {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  animation: ggp-spin var(--ggp-t) linear infinite;
+}
+.ggp-badge-ring text {
+  fill: #fff; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 13.2px; letter-spacing: 1.5px;
+}
+.ggp-badge-core {
+  position: relative; display: flex; flex-direction: column; align-items: center; color: #fff; line-height: 1;
+}
+.ggp-badge-core span { font-size: 2.6cqw; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+.ggp-badge-core strong { font-family: 'Playfair Display', Georgia, serif; font-size: 8.4cqw; font-weight: 700; margin-top: .3cqw; }
+.ggp-badge-core small { font-size: 4.2cqw; }
+@keyframes ggp-spin { to { transform: rotate(360deg); } }
+@keyframes ggp-bob {
+  0%, 100% { transform: translateY(0) rotate(-6deg); }
+  50% { transform: translateY(-1.4cqw) rotate(4deg); }
+}
+
+/* Promo card */
+.ggp-card {
+  position: absolute; z-index: 4; left: 6cqw; right: 6cqw; top: 93cqw; height: 24.5cqw;
+  border-radius: 4cqw; overflow: hidden;
+  background: rgba(255,255,255,.93);
+  box-shadow: 0 2cqw 6cqw rgba(74,14,51,.32);
+}
+.ggp-card-shine {
+  position: absolute; inset: 0; z-index: 2; pointer-events: none;
+  background: linear-gradient(105deg, rgba(255,255,255,0) 35%, rgba(255,214,234,.85) 50%, rgba(255,255,255,0) 65%);
+  transform: translateX(-110%);
+  animation: ggp-shine var(--ggp-phase) ease-in-out infinite;
+}
+@keyframes ggp-shine {
+  0%, 18% { transform: translateX(-110%); }
+  45%, 100% { transform: translateX(110%); }
+}
+.ggp-phases { position: absolute; left: 5cqw; right: 5cqw; top: 3.2cqw; bottom: 5cqw; }
+.ggp-phase {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; justify-content: space-between;
+  opacity: 0;
+  animation: ggp-phase var(--ggp-t) cubic-bezier(.22,.8,.3,1) infinite;
+  animation-delay: var(--d);
+}
+/* in: 0–3 % · hold · out (push left): 25–28 %, overlapping the next phase's in */
+@keyframes ggp-phase {
+  0% { opacity: 0; transform: translateX(14cqw); filter: blur(1cqw); }
+  3% { opacity: 1; transform: translateX(0); filter: blur(0); }
+  25% { opacity: 1; transform: translateX(0); filter: blur(0); }
+  28% { opacity: 0; transform: translateX(-14cqw); filter: blur(1cqw); }
+  100% { opacity: 0; transform: translateX(-14cqw); }
+}
+.ggp-tag {
+  display: flex; align-items: center; gap: 2cqw;
+  font-size: 3.1cqw; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap;
+}
+.ggp-index {
+  display: inline-grid; place-items: center;
+  min-width: 6cqw; padding: .5cqw 1.2cqw; border-radius: 3cqw;
+  background: var(--ggp-hot); color: #fff; font-size: 2.4cqw; letter-spacing: .04em;
+}
+.ggp-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 3cqw; }
+.ggp-lead {
+  font-size: 3.4cqw; font-weight: 600; line-height: 1.15; opacity: .85; padding-bottom: 1.4cqw;
+}
+.ggp-value {
+  font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+  font-size: 13cqw; line-height: .9; color: var(--ggp-magenta); white-space: nowrap;
+  transform-origin: 100% 80%;
+  animation: ggp-pop var(--ggp-t) cubic-bezier(.3,1.6,.5,1) infinite;
+  animation-delay: var(--d);
+}
+@keyframes ggp-pop {
+  0%, 2% { transform: scale(.55); }
+  6% { transform: scale(1.08); }
+  8%, 100% { transform: scale(1); }
+}
+.ggp-rp { font-size: 5cqw; margin-right: 1cqw; vertical-align: .9em; }
+.ggp-pct { font-size: 7cqw; margin-left: .4cqw; }
+.ggp-progress {
+  position: absolute; left: 5cqw; right: 5cqw; bottom: 2.4cqw;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.4cqw;
+}
+.ggp-progress span { height: .7cqw; border-radius: 1cqw; background: rgba(194,24,107,.18); overflow: hidden; }
+.ggp-progress i {
+  display: block; height: 100%; background: var(--ggp-hot);
+  transform-origin: left center; transform: scaleX(0);
+  animation: ggp-fill var(--ggp-t) linear infinite;
+  animation-delay: var(--d);
+}
+@keyframes ggp-fill {
+  0% { transform: scaleX(0); }
+  25% { transform: scaleX(1); }
+  25.01%, 100% { transform: scaleX(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ggp-scene img, .ggp-glitter i, .ggp-kicker-line, .ggp-title-word,
+  .ggp-badge, .ggp-badge-ring, .ggp-card-shine, .ggp-value { animation: none; }
+  .ggp-glitter { display: none; }
+  .ggp-phase { filter: none; }
+}
+
+/* Slide 11: still version — no motion, all promos listed */
+.ggp-root--still *, .ggp-root--still *::before, .ggp-root--still *::after { animation: none !important; }
+.ggp-root--still .ggp-title-word { opacity: 1; transform: none; }
+.ggp-root--still .ggp-card.ggp-list {
+  top: 66cqw; height: auto; padding: 2cqw 5cqw;
+  display: flex; flex-direction: column;
+}
+.ggp-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 3cqw;
+  padding: 1.3cqw 0; border-bottom: .3cqw dashed rgba(194,24,107,.25);
+}
+.ggp-item:last-child { border-bottom: 0; }
+.ggp-item .ggp-tag { font-size: 2.9cqw; white-space: normal; }
+.ggp-item-name { display: flex; flex-direction: column; gap: .4cqw; }
+.ggp-item-name small { font-size: 2.4cqw; font-weight: 600; letter-spacing: .04em; text-transform: none; opacity: .7; }
+.ggp-item .ggp-value { font-size: 7.4cqw; transform: none; }
+.ggp-item .ggp-rp { font-size: 3.4cqw; }
+.ggp-item .ggp-pct { font-size: 4.6cqw; }

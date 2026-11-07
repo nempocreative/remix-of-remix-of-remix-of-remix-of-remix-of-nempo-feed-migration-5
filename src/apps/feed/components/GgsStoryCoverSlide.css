@@ -1,0 +1,15 @@
+.ggc-root{position:relative;isolation:isolate;width:min(100%,45vh);max-width:100%;aspect-ratio:9/16;overflow:hidden;container-type:inline-size;background:var(--ggc-ink);font-family:'DM Sans',sans-serif;color:var(--ggc-light);box-shadow:0 24px 70px color-mix(in srgb,var(--ggc-ink) 22%,transparent)}
+.ggc-photo,.ggc-shade,.ggc-overlay{position:absolute;inset:0;width:100%;height:100%}
+.ggc-photo{top:-12cqw;height:calc(100% + 12cqw);object-fit:cover;object-position:50% 40%}
+.ggc-shade{background:var(--ggc-top-shade),var(--ggc-bottom-shade)}
+.ggc-overlay{object-fit:contain;z-index:3;pointer-events:none}
+.ggc-copy{position:absolute;z-index:2;left:7cqw;right:7cqw;bottom:17cqw;display:flex;flex-direction:column;align-items:center;gap:2.8cqw;text-align:center}
+.ggc-title{margin:0;display:flex;flex-direction:column;align-items:center;font-family:'Playfair Display',serif;font-weight:600;font-size:8.6cqw;line-height:1.08;letter-spacing:0;text-wrap:balance;text-shadow:0 .4cqw 2.4cqw color-mix(in srgb,var(--ggc-ink) 55%,transparent)}
+.ggc-title span{white-space:nowrap}
+.ggc-title em{font-style:italic;font-weight:500;color:var(--ggc-accent)}
+.ggc-rule{width:12cqw;height:.3cqw;background:var(--ggc-accent)}
+/* Slide 05: photo centered, headline kept inside the middle 1080×1440 feed-crop band (22.2cqw–155.6cqw from top). */
+.ggc-centered .ggc-photo{top:0;height:100%;object-position:50% 50%}
+.ggc-centered .ggc-shade{background:var(--ggc-top-shade),var(--ggc-centered-shade)}
+.ggc-centered .ggc-copy{bottom:26.5cqw;gap:2.2cqw}
+.ggc-centered .ggc-title{font-size:8cqw}

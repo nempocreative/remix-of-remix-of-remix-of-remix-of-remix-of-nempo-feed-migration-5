@@ -1,0 +1,114 @@
+.kmr-controls { display: flex; justify-content: center; gap: 8px; margin-bottom: 12px; }
+.kmr-root {
+  position: relative; isolation: isolate; width: 100%; aspect-ratio: 3 / 4; overflow: hidden;
+  container-type: inline-size; background: var(--kmr-bg); color: var(--kmr-ink); font-family: 'DM Sans', sans-serif;
+}
+.kmr-root * { letter-spacing: 0; }
+.kmr-root p, .kmr-root h2, .kmr-root h3, .kmr-root figure, .kmr-root ol { margin: 0; padding: 0; }
+.kmr-glow { position: absolute; inset: 0; background: var(--kmr-glow); pointer-events: none; }
+
+.kmr-header { position: absolute; z-index: 6; top: 5cqw; left: 6cqw; right: 6cqw; display: flex; align-items: center; gap: 2.6cqw; }
+.kmr-logo {
+  display: flex; align-items: center; justify-content: center; width: 9.5cqw; height: 9.5cqw;
+  border-radius: 2.6cqw; background: #062f4d; padding: 1.2cqw;
+  box-shadow: 0 1.6cqw 3.6cqw rgba(2, 32, 56, 0.35);
+}
+.kmr-logo img { width: 100%; height: 100%; object-fit: contain; }
+.kmr-brand { display: flex; flex-direction: column; gap: 0.8cqw; line-height: 1; color: #ffffff; }
+.kmr-brand strong { font-size: 2.9cqw; font-weight: 800; letter-spacing: 0.1em !important; }
+.kmr-brand span { font-size: 2.2cqw; font-weight: 600; color: var(--kmr-accent-soft); letter-spacing: 0.12em !important; }
+
+.kmr-title {
+  position: absolute; z-index: 2; top: 19.5cqw; left: 5cqw; right: 5cqw; text-align: center;
+  font-weight: 800; font-size: 6cqw; line-height: 1.12; color: #ffffff;
+  text-shadow: 0 0.6cqw 2.4cqw rgba(2, 32, 56, 0.45);
+}
+.kmr-title em { font-style: normal; color: var(--kmr-accent); }
+
+.kmr-stage { position: absolute; inset: 0; z-index: 3; perspective: 140cqw; transform-style: preserve-3d; }
+.kmr-card {
+  position: absolute; left: 26cqw; top: 34cqw; width: 48cqw; padding: 1.8cqw 1.8cqw 0; border-radius: 2.4cqw;
+  background: var(--kmr-card); box-shadow: var(--kmr-card-shadow); transform-origin: 50% 60%;
+  backface-visibility: hidden; will-change: transform;
+  animation-duration: 15s; animation-iteration-count: infinite; animation-fill-mode: both; animation-timing-function: linear;
+}
+.kmr-photo { position: relative; overflow: hidden; aspect-ratio: 3 / 4; border-radius: 1.4cqw; background: var(--kmr-paper); }
+.kmr-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.kmr-sheen {
+  position: absolute; inset: 0; background: var(--kmr-sheen); transform: translateX(-130%);
+  animation-duration: 15s; animation-iteration-count: infinite; animation-fill-mode: both; animation-timing-function: cubic-bezier(.4,0,.2,1);
+}
+.kmr-card figcaption { display: flex; align-items: center; gap: 2cqw; height: 7.4cqw; padding: 0 .6cqw; }
+.kmr-num { font-weight: 800; font-size: 3.4cqw; color: var(--kmr-accent-deep); }
+.kmr-name { font-size: 2.4cqw; font-weight: 700; text-transform: uppercase; letter-spacing: .12em !important; white-space: nowrap; color: var(--kmr-ink); }
+.kmr-notes { position: absolute; z-index: 4; left: 6cqw; right: 6cqw; top: 106.5cqw; height: 5cqw; }
+.kmr-note {
+  position: absolute; inset: 0; text-align: center; font-size: 3.3cqw; font-weight: 500; color: rgba(255, 255, 255, 0.88); opacity: 0;
+  animation-duration: 15s; animation-iteration-count: infinite; animation-fill-mode: both; animation-timing-function: ease-in-out;
+}
+.kmr-final { animation-name: kmr-final; font-weight: 700; color: #ffffff; }
+.kmr-dots { position: absolute; z-index: 4; left: 0; right: 0; top: 113.6cqw; display: flex; justify-content: center; gap: 3cqw; }
+.kmr-dot {
+  width: 1.3cqw; height: 1.3cqw; border-radius: 1cqw; background: var(--kmr-accent); opacity: .35;
+  animation-duration: 15s; animation-iteration-count: infinite; animation-fill-mode: both; animation-timing-function: ease-in-out;
+}
+
+/* ---- Slide 36: info ---- */
+.kmi-root { display: block; }
+.kmi-title {
+  position: absolute; z-index: 2; top: 18.5cqw; left: 6cqw; right: 6cqw; text-align: center;
+  font-weight: 800; font-size: 6.2cqw; line-height: 1.12; color: #ffffff; opacity: 0;
+  text-shadow: 0 0.6cqw 2.4cqw rgba(2, 32, 56, 0.45);
+  animation-duration: 15s; animation-iteration-count: infinite; animation-fill-mode: both; animation-timing-function: ease-in-out;
+  animation-name: kmi-title;
+}
+.kmi-title em { font-style: normal; color: var(--kmr-accent); }
+.kmi-block { position: absolute; z-index: 2; left: 7cqw; right: 7cqw; }
+.kmi-block-who { top: 33cqw; }
+.kmi-block-div { top: 50cqw; }
+.kmi-block-steps { top: 80.5cqw; }
+.kmi-head {
+  font-size: 3.1cqw; font-weight: 800; text-transform: uppercase; letter-spacing: .16em !important;
+  color: var(--kmr-accent); text-align: center; margin-bottom: 2.2cqw; opacity: 0;
+  animation-duration: 15s; animation-iteration-count: infinite; animation-fill-mode: both; animation-timing-function: ease-in-out;
+}
+.kmi-who-head { animation-name: kmi-who-head; }
+.kmi-div-head { animation-name: kmi-div-head; }
+.kmi-steps-head { animation-name: kmi-steps-head; }
+.kmi-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.6cqw; }
+.kmi-chip {
+  display: inline-flex; align-items: center; padding: 1.3cqw 2.8cqw; border-radius: 99px;
+  background: rgba(255, 255, 255, 0.14); border: 1px solid rgba(255, 255, 255, 0.32);
+  font-size: 2.7cqw; font-weight: 700; color: #ffffff; white-space: nowrap; opacity: 0;
+  animation-duration: 15s; animation-iteration-count: infinite; animation-fill-mode: both; animation-timing-function: ease-in-out;
+}
+.kmi-chips-div .kmi-chip { background: rgba(255, 221, 0, 0.14); border-color: rgba(255, 221, 0, 0.45); }
+.kmi-free {
+  margin-top: 2cqw; text-align: center; font-size: 2.8cqw; font-weight: 700; color: var(--kmr-accent); opacity: 0;
+  animation-duration: 15s; animation-iteration-count: infinite; animation-fill-mode: both; animation-timing-function: ease-in-out;
+  animation-name: kmi-free;
+}
+.kmi-step-list { display: flex; flex-direction: column; gap: 1.7cqw; list-style: none; }
+.kmi-step {
+  display: flex; align-items: center; gap: 2.4cqw; padding: 1.6cqw 2.6cqw; border-radius: 2cqw;
+  background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(255, 255, 255, 0.26);
+  font-size: 2.9cqw; font-weight: 600; color: #ffffff; opacity: 0;
+  animation-duration: 15s; animation-iteration-count: infinite; animation-fill-mode: both; animation-timing-function: ease-in-out;
+}
+.kmi-step-num {
+  display: inline-flex; align-items: center; justify-content: center; flex: none;
+  width: 4.6cqw; height: 4.6cqw; border-radius: 99px; background: var(--kmr-accent);
+  color: #062f4d; font-size: 2.7cqw; font-weight: 800;
+}
+.kmi-cta {
+  position: absolute; z-index: 2; left: 7cqw; right: 7cqw; top: 113.5cqw; text-align: center;
+  padding: 2.4cqw 3cqw; border-radius: 99px; background: var(--kmr-accent); color: #062f4d;
+  font-size: 3.2cqw; font-weight: 700; opacity: 0;
+  box-shadow: 0 1.6cqw 4cqw rgba(2, 32, 56, 0.4);
+  animation-duration: 15s; animation-iteration-count: infinite; animation-fill-mode: both; animation-timing-function: ease-in-out;
+  animation-name: kmi-cta;
+}
+.kmi-cta strong { font-weight: 900; white-space: nowrap; }
+
+.kmr-root.is-paused *, .kmr-root.is-paused *::before { animation-play-state: paused !important; }
+.kmr-root.is-reduced * { animation-delay: -13.5s !important; animation-play-state: paused !important; }
