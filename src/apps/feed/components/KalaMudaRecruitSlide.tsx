@@ -189,13 +189,13 @@ function InfoSlide({ exportRef, slideNumber }: { exportRef?: RefObject<HTMLEleme
       <div
         key={replayKey}
         ref={exportRef as RefObject<HTMLDivElement | null>}
-        className={`kmr-root kmi-root${paused ? ' is-paused' : ''}${reduced ? ' is-reduced' : ''}`}
+        className={`kmr-root kmt-root kmi-root${paused ? ' is-paused' : ''}${reduced ? ' is-reduced' : ''}`}
         data-duration={KMR_DURATION}
         role="img"
         aria-label={`Gabung Kala Muda Creative Team. Siapa yang bisa daftar: ${INFO_WHO.join(', ')}. Pilihan divisi: ${INFO_DIVISIONS.join(', ')}. Cara daftar: ${INFO_STEPS.join('; ')}. Daftar via WhatsApp 0857-2498-1356, tanpa biaya.`}
       >
-        <div className="kmr-glow" aria-hidden="true" />
-        <KmrHeader />
+        <TeamBackdrop />
+        <NempoHeader badge="OPEN RECRUITMENT" />
         <h2 className="kmi-title" aria-hidden="true">
           Gabung <em>Kala Muda</em> Creative Team
         </h2>
@@ -230,6 +230,7 @@ function InfoSlide({ exportRef, slideNumber }: { exportRef?: RefObject<HTMLEleme
         <p className="kmi-cta" aria-hidden="true">
           Daftar via WhatsApp <strong>0857-2498-1356</strong>
         </p>
+        <NempoFooter />
       </div>
     </div>
   );

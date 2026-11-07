@@ -151,3 +151,20 @@
 .kmr-root.is-paused *, .kmr-root.is-paused *::before { animation-play-state: paused !important; }
 .kmr-root.is-reduced * { animation-delay: -13.5s !important; animation-play-state: paused !important; }
 
+
+/* Slide 36 on the slide 35 look: same backdrop/header/footer, tighter layout */
+.kmi-root .kmt-word, .kmi-root .kmt-spark-c, .kmi-root .kmt-dots { display: none; }
+.kmi-root .kmt-spark-a { top: 20cqw; }
+.kmi-root .kmt-spark-b { top: 21cqw; }
+.kmi-root .kmi-title { top: 20cqw; left: 15cqw; right: 15cqw; font-size: 5cqw; }
+.kmi-root .kmi-block-who { top: 37cqw; }
+.kmi-root .kmi-block-div { top: 55cqw; }
+.kmi-root .kmi-block-steps { top: 78cqw; }
+.kmi-root .kmi-head { font-size: 2.6cqw; margin-bottom: 1.6cqw; }
+.kmi-root .kmi-chip { padding: 1.1cqw 2.4cqw; font-size: 2.4cqw; }
+.kmi-root .kmi-free { margin-top: 1.4cqw; font-size: 2.4cqw; }
+.kmi-root .kmi-chips { gap: 1.3cqw; }
+.kmi-root .kmi-step-list { gap: 1.2cqw; }
+.kmi-root .kmi-step { padding: 1.2cqw 2.4cqw; font-size: 2.6cqw; }
+.kmi-root .kmi-step-num { width: 4cqw; height: 4cqw; font-size: 2.3cqw; }
+.kmi-root .kmi-cta { top: 109.5cqw; padding: 1.8cqw 3cqw; font-size: 2.9cqw; }
