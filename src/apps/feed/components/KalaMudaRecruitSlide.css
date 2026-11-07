@@ -168,4 +168,3 @@
   font-size: 1.15cqw; font-weight: 800; text-transform: uppercase; letter-spacing: .04em !important;
   white-space: nowrap; color: var(--kmr-ink);
 }
-.is-paused .kmr-all { animation-play-state: paused; }
