@@ -1,2 +1,3 @@
 - [x] Slide 23 full video
-- [ ] Slide 24: layanan pelanggan WA + medsos
+- [x] Slide 24: layanan pelanggan WA + medsos (foto pedicure, desain ringkas)
+- [ ] Slide 23: buat ulang video unduhan (tunggu persetujuan owner)
