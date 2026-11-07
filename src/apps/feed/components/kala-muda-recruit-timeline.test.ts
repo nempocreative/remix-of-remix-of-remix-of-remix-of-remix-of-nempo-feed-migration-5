@@ -17,8 +17,10 @@ import {
   TEAM_EXIT_LEN,
   TEAM_RISE,
   TEAM_STAGGER,
-  SOLO_LEN,
-  SOLO_START,
+  GRID_ENTER,
+  GRID_EXIT,
+  GRID_EXIT_LEN,
+  KMR_ALL_TEAM,
   teamFanPose,
 } from './kala-muda-recruit-timeline';
 
@@ -28,16 +30,19 @@ describe('kala-muda-recruit-timeline', () => {
     expect(KMR_TEAM_CARDS).toBe(5);
   });
 
-  it('shows each card alone in turn, then all five together', () => {
+  it('brings the five featured cards in together, not one by one', () => {
     const css = buildKmrTeamCss();
-    for (let card = 0; card < KMR_TEAM_CARDS; card++) {
-      expect(css).toContain(`@keyframes kmr-card-${card}`);
-    }
-    // solo turns finish before the group enters, and the group holds at least 3 s
-    expect(SOLO_START + KMR_TEAM_CARDS * SOLO_LEN).toBeLessThanOrEqual(TEAM_ENTER);
-    expect(TEAM_EXIT - (TEAM_ENTER + (KMR_TEAM_CARDS - 1) * TEAM_STAGGER + TEAM_RISE)).toBeGreaterThan(3);
-    expect(TEAM_EXIT + TEAM_EXIT_LEN).toBeLessThanOrEqual(KMR_DURATION);
+    for (let card = 0; card < KMR_TEAM_CARDS; card++) expect(css).toContain(`@keyframes kmr-card-${card}`);
+    expect(TEAM_ENTER + (KMR_TEAM_CARDS - 1) * TEAM_STAGGER + TEAM_RISE).toBeLessThan(2);
     expect(css).not.toContain('ggn-');
+  });
+
+  it('then transitions to all 17 NEMPO Garut team members', () => {
+    const css = buildKmrTeamCss();
+    expect(KMR_ALL_TEAM).toBe(17);
+    for (let m = 0; m < KMR_ALL_TEAM; m++) expect(css).toContain(`.kmr-all[data-i="${m}"]{animation-name:kmr-all-${m}}`);
+    expect(GRID_ENTER).toBeGreaterThanOrEqual(TEAM_EXIT + TEAM_EXIT_LEN - 0.2);
+    expect(GRID_EXIT + GRID_EXIT_LEN).toBeLessThanOrEqual(KMR_DURATION);
   });
 
   it('fans the cards symmetrically with the middle card on top', () => {
