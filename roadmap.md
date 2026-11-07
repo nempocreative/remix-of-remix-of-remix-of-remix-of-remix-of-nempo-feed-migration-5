@@ -1,4 +1,5 @@
 - [x] Slide 23 full video
 - [x] Slide 24: layanan pelanggan WA + medsos (foto pedicure, desain ringkas)
 - [ ] Slide 23: buat ulang video unduhan (tunggu persetujuan owner)
-- [ ] Slide 35: header/footer seperti slide 20, latar desain grafis (bukan foto), kartu tim muncul bersamaan
+- [x] Slide 35: header/footer seperti slide 20, latar desain grafis (bukan foto), kartu tim muncul bersamaan
+- [ ] Slide 35: buat ulang video unduhan (tunggu persetujuan owner)
