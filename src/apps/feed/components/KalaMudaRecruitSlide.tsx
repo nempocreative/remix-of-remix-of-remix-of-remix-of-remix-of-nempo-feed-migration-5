@@ -1,5 +1,5 @@
 import { useEffect, useState, type RefObject } from 'react';
-import { Pause, Play, RotateCcw } from 'lucide-react';
+import { Camera, Laptop, Palette, Pause, Play, RotateCcw } from 'lucide-react';
 import { FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa6';
 import { Button } from '@/components/ui/button';
 import kalaMudaLogo from '@/assets/kala-muda-logo.png';
@@ -106,9 +106,9 @@ function TeamBackdrop() {
       <span className="kmt-ring kmt-ring-b" />
       <span className="kmt-band" />
       <span className="kmt-word">KALA MUDA</span>
-      <span className="kmt-spark kmt-spark-a">✦</span>
-      <span className="kmt-spark kmt-spark-b">✦</span>
-      <span className="kmt-spark kmt-spark-c">✦</span>
+      <span className="kmt-spark kmt-spark-a"><Camera strokeWidth={2.2} /></span>
+      <span className="kmt-spark kmt-spark-b"><Laptop strokeWidth={2.2} /></span>
+      <span className="kmt-spark kmt-spark-c"><Palette strokeWidth={2.2} /></span>
       <span className="kmt-dots" />
     </div>
   );
