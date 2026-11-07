@@ -1,10 +1,10 @@
 .ggh-root{position:relative;isolation:isolate;width:100%;aspect-ratio:3/4;overflow:hidden;container-type:inline-size;background:var(--ggh-paper);font-family:'DM Sans',sans-serif;color:var(--ggh-ink)}
-.ggh-photo{position:absolute;top:0;left:0;width:100%;height:62cqw;object-fit:cover;object-position:50% 34%}
-.ggh-fade{position:absolute;top:52cqw;left:0;width:100%;height:12cqw;background:var(--ggh-fade)}
-.ggh-copy{position:absolute;z-index:2;left:8cqw;right:8cqw;top:70cqw;display:flex;flex-direction:column;align-items:center;text-align:center}
-.ggh-title{margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:8.6cqw;line-height:1.05;letter-spacing:0;color:var(--ggh-ink)}
-.ggh-rule{display:block;width:13cqw;height:.34cqw;margin:3.4cqw 0 3.8cqw;background:var(--ggh-accent)}
-.ggh-hours{margin:0;display:flex;align-items:baseline;justify-content:center;gap:2.6cqw;font-weight:800;font-size:11.6cqw;line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums;color:var(--ggh-ink)}
-.ggh-hours em{font-style:normal;font-weight:400;font-size:7.6cqw;color:var(--ggh-accent)}
-.ggh-days{margin:3.4cqw 0 0;font-size:3.4cqw;font-weight:600;text-transform:uppercase;letter-spacing:.62cqw;color:var(--ggh-primary)}
+.ggh-photo{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.ggh-fade{position:absolute;inset:0;background:var(--ggh-fade)}
+.ggh-copy{position:absolute;z-index:2;left:8cqw;right:8cqw;bottom:22cqw;display:flex;text-shadow:var(--ggh-glow);flex-direction:column;align-items:center;text-align:center}
+.ggh-title{margin:0;font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:8.6cqw;line-height:1.05;letter-spacing:0;color:var(--ggh-paper)}
+.ggh-rule{display:block;width:13cqw;height:.34cqw;margin:3.4cqw 0 3.8cqw;background:var(--ggh-accent-light)}
+.ggh-hours{margin:0;display:flex;align-items:baseline;justify-content:center;gap:2.6cqw;font-weight:800;font-size:11.6cqw;line-height:1;letter-spacing:0;font-variant-numeric:tabular-nums;color:var(--ggh-paper)}
+.ggh-hours em{font-style:normal;font-weight:400;font-size:7.6cqw;color:var(--ggh-accent-light)}
+.ggh-days{margin:3.4cqw 0 0;font-size:3.4cqw;font-weight:600;text-transform:uppercase;letter-spacing:.62cqw;color:var(--ggh-accent-light)}
 .ggh-watermark{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:3;pointer-events:none}
