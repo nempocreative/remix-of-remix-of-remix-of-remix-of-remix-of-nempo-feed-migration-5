@@ -3345,8 +3345,10 @@ function App() {
                     const file = new File([preparedNempoPng.blob], preparedNempoPng.fileName, { type: 'image/png' });
                     if (navigator.canShare?.({ files: [file] })) {
                       event.preventDefault();
-                      navigator.share({ files: [file], title: preparedNempoPng.fileName }).catch(() => {
-                        /* user cancelled or sharing blocked; the picture link still works */
+                      navigator.share({ files: [file], title: preparedNempoPng.fileName }).catch((error: DOMException) => {
+                        if (error?.name !== 'AbortError') {
+                          setDownloadError('Simpan langsung diblokir di pratinjau. Coba dari situs yang sudah dipublikasikan.');
+                        }
                       });
                     }
                   }}
