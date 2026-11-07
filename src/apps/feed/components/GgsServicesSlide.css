@@ -1,0 +1,91 @@
+/* GGS Feed slides 13–18 — daftar layanan tanpa harga (statis, `ggsv-`). */
+.ggsv-root {
+  --ggsv-magenta: #c2186b;
+  --ggsv-hot: #e0218a;
+  --ggsv-plum: #4a0e33;
+  --ggsv-blush: #ffe3f0;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  container-type: inline-size;
+  background: linear-gradient(165deg, #fff2f8 0%, #fde4ef 45%, #f9cfe3 100%);
+  font-family: 'DM Sans', sans-serif;
+  color: var(--ggsv-plum);
+}
+.ggsv-root img { user-select: none; }
+.ggsv-root p, .ggsv-root h2, .ggsv-root h3, .ggsv-root ul { margin: 0; padding: 0; }
+
+/* Soft background blobs */
+.ggsv-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+.ggsv-blob { position: absolute; border-radius: 50%; filter: blur(10cqw); opacity: .55; }
+.ggsv-blob--1 { width: 55cqw; aspect-ratio: 1; left: -18cqw; top: -10cqw; background: #ffc4de; }
+.ggsv-blob--2 { width: 48cqw; aspect-ratio: 1; right: -16cqw; top: 34cqw; background: #ffdff0; }
+.ggsv-blob--3 { width: 60cqw; aspect-ratio: 1; left: -12cqw; bottom: -22cqw; background: #f7b8d6; }
+
+.ggsv-watermark {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: contain; z-index: 6; pointer-events: none;
+}
+
+/* Headline (right of the logo in the header overlay) */
+.ggsv-head { position: absolute; z-index: 3; left: 24cqw; right: 6cqw; top: 16cqw; }
+.ggsv-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 700; font-size: 7cqw; line-height: .98;
+  color: var(--ggsv-magenta);
+}
+.ggsv-title em { font-style: italic; font-weight: 500; }
+/* Root-scoped so it beats the `.ggsv-root p` margin reset; keeps the pill clear of the title. */
+.ggsv-root .ggsv-category {
+  margin-top: 3cqw;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 1cqw;
+}
+.ggsv-category-name {
+  display: inline-block; padding: .7cqw 2.4cqw; border-radius: 999px;
+  background: linear-gradient(100deg, var(--ggsv-hot), var(--ggsv-magenta));
+  color: #fff; font-size: 2.5cqw; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+  box-shadow: 0 1cqw 3cqw rgba(194,24,107,.35);
+}
+.ggsv-category-tagline { font-size: 2.8cqw; font-weight: 600; font-style: italic; opacity: .75; margin-top: .4cqw; }
+
+/* Service list card */
+.ggsv-card {
+  /* bottom 16cqw keeps the last row clear of the footer shape (top ~13.3cqw). */
+  position: absolute; z-index: 4; left: 6cqw; right: 6cqw; top: 39cqw; bottom: 16cqw;
+  border-radius: 4cqw;
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 2cqw 6cqw rgba(74,14,51,.28);
+  padding: 2.6cqw 5cqw;
+  display: flex; flex-direction: column; justify-content: center; gap: 2cqw;
+  overflow: hidden;
+}
+.ggsv-group { display: flex; flex-direction: column; }
+.ggsv-group + .ggsv-group { margin-top: 1.2cqw; padding-top: 1.2cqw; border-top: .3cqw dashed rgba(194,24,107,.25); }
+.ggsv-group-heading {
+  font-size: 2.9cqw; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ggsv-hot); margin-bottom: .5cqw;
+}
+.ggsv-list { list-style: none; display: flex; flex-direction: column; }
+.ggsv-item {
+  display: flex; align-items: center; gap: 2.4cqw;
+  padding: .7cqw 0;
+}
+.ggsv-item + .ggsv-item { border-top: .25cqw solid rgba(194,24,107,.1); }
+.ggsv-index {
+  flex: none;
+  display: inline-grid; place-items: center;
+  min-width: 5.4cqw; padding: .4cqw 1cqw; border-radius: 2.6cqw;
+  background: var(--ggsv-blush); color: var(--ggsv-magenta);
+  font-size: 2.3cqw; font-weight: 800; letter-spacing: .04em;
+}
+.ggsv-name { font-size: 2.95cqw; font-weight: 600; line-height: 1.2; }
+
+/* Dense variant for the fullest slide (17) */
+.ggsv-root--dense .ggsv-card { padding: 2cqw 5cqw; gap: .8cqw; }
+.ggsv-root--dense .ggsv-group + .ggsv-group { margin-top: .8cqw; padding-top: .8cqw; }
+.ggsv-root--dense .ggsv-group-heading { font-size: 2.6cqw; margin-bottom: .3cqw; }
+.ggsv-root--dense .ggsv-item { padding: .45cqw 0; }
+.ggsv-root--dense .ggsv-name { font-size: 2.7cqw; }
+.ggsv-root--dense .ggsv-index { min-width: 4.8cqw; font-size: 2.1cqw; }

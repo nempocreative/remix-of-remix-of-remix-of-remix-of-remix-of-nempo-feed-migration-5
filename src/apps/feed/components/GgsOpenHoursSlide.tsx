@@ -1,0 +1,40 @@
+import type { RefObject } from 'react';
+import salonPhoto from '@/assets/ggs-open-hours-hair.jpg';
+import salonVideo from '@/assets/ggs-open-hours-hair-motion.mp4.asset.json';
+import ggsWatermark from '@/assets/ggs-header-footer-v2.png.asset.json';
+import './GgsOpenHoursSlide.css';
+
+/** GGS Feed slide 23: looping hairstyle footage with the opening hours and v2 branding. */
+export function GgsOpenHoursSlide({ exportRef }: { exportRef?: RefObject<HTMLElement | null> }) {
+  return (
+    <div
+      ref={exportRef as RefObject<HTMLDivElement | null>}
+      className="ggh-root"
+      aria-label="GGS Beauty — We are open, setiap hari jam 09.00 sampai 21.00"
+    >
+      <video
+        className="ggh-photo"
+        src={salonVideo.url}
+        poster={salonPhoto}
+        aria-label="Tiga perempuan dari belakang dengan rambut lurus, keriting, dan blow bergerak natural"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+      />
+      <div className="ggh-fade" />
+      <section className="ggh-copy">
+        <h2 className="ggh-title">We are open</h2>
+        <span className="ggh-rule" aria-hidden="true" />
+        <p className="ggh-hours">
+          <span>09.00</span>
+          <em>&ndash;</em>
+          <span>21.00</span>
+        </p>
+        <p className="ggh-days">Setiap hari</p>
+      </section>
+      <img className="ggh-watermark" src={ggsWatermark.url} alt="" aria-hidden="true" />
+    </div>
+  );
+}

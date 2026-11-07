@@ -28,3 +28,6 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- NEMPO Feed is migrated from github.com/nempocreative/nempo-60 as a sub-app in `src/apps/feed`, mounted at `/nempo-feed` (`/` redirects there); why: the owner is migrating that repo section by section.
+- tsconfig strict extras (noUncheckedIndexedAccess, exactOptionalPropertyTypes, etc.) are off to match the source repo; why: migrated code was written without them.
