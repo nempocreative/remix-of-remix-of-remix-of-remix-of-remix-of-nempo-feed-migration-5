@@ -38,7 +38,7 @@ describe('kala-muda-recruit-timeline', () => {
   });
 
   it('fans the cards symmetrically with the middle card on top', () => {
-    expect(teamFanPose(2)).toMatchObject({ tx: 0, rot: 0, scale: 1 });
+    expect(teamFanPose(2)).toMatchObject({ tx: 0, rot: 0, scale: 1.06 });
     expect(teamFanPose(0).tx).toBe(-teamFanPose(4).tx);
     expect(buildKmrTeamCss()).toContain('.kmr-card[data-i="2"]{animation-name:kmr-card-2;z-index:5}');
   });

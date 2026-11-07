@@ -29,7 +29,7 @@ type Pose = { tx: number; ty: number; rot: number; scale: number; opacity: numbe
 /** Fanned resting pose: center card on top, outer cards tilted outward. */
 export function teamFanPose(card: number): Pose {
   const off = card - (KMR_TEAM_CARDS - 1) / 2;
-  return { tx: off * 15.5, ty: Math.abs(off) * 3.6, rot: off * 7.5, scale: off === 0 ? 1 : 0.92, opacity: 1 };
+  return { tx: off * 15, ty: Math.abs(off) * 4.2, rot: off * 6, scale: off === 0 ? 1.06 : 0.86, opacity: 1 };
 }
 
 const poseCss = (pose: Pose) =>
