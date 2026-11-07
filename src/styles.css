@@ -27,6 +27,8 @@
   --ggh-primary: #a51d5d;
   --ggh-accent: #c2457f;
   --ggh-accent-light: #ffc9df;
+  --ggh-card: color-mix(in srgb, #ffffff 92%, transparent);
+  --ggh-card-shadow: 0 1.2cqw 3.4cqw color-mix(in srgb, #3d0b2a 35%, transparent);
   --ggh-fade: linear-gradient(180deg, color-mix(in srgb, var(--ggh-ink) 35%, transparent) 0%, transparent 18%, transparent 42%, color-mix(in srgb, var(--ggh-ink) 70%, transparent) 64%, color-mix(in srgb, var(--ggh-ink) 92%, transparent) 100%);
   --ggh-glow: 0 .6cqw 3cqw color-mix(in srgb, var(--ggh-ink) 70%, transparent);
 }
