@@ -160,7 +160,7 @@ function TeamSlide({ exportRef, slideNumber }: { exportRef?: RefObject<HTMLEleme
         className={`kmr-root kmt-root${paused ? ' is-paused' : ''}${reduced ? ' is-reduced' : ''}`}
         data-duration={KMR_DURATION}
         role="img"
-        aria-label={`Kala Muda Community — Are you ready jadi next creative team: ${TEAM_CARDS.map((card) => card.name).join(', ')}, lalu seluruh ${ALL_TEAM.length} anggota tim NEMPO Garut.`}
+        aria-label={`Kala Muda Community — Are you ready jadi next creative team: seluruh ${ALL_TEAM.length} anggota tim NEMPO Garut, lima-lima bergantian.`}
       >
         <TeamBackdrop />
         <NempoHeader badge="OPEN RECRUITMENT" />
@@ -168,8 +168,8 @@ function TeamSlide({ exportRef, slideNumber }: { exportRef?: RefObject<HTMLEleme
           Are You Ready Jadi <em>Next Creative Team?</em>
         </h2>
         <div className="kmr-stage" aria-hidden="true">
-          {TEAM_CARDS.map((card, i) => (
-            <figure key={card.name} className="kmr-card" data-i={i}>
+          {ALL_TEAM.map((card, i) => (
+            <figure key={i} className="kmr-card" data-i={i}>
               <div className="kmr-float">
                 <div className="kmr-photo">
                   <img src={card.photo} alt="" width={768} height={1024} draggable={false} />
@@ -177,17 +177,9 @@ function TeamSlide({ exportRef, slideNumber }: { exportRef?: RefObject<HTMLEleme
                 </div>
                 <figcaption>
                   <span className="kmr-num">{String(i + 1).padStart(2, '0')}</span>
-                  <span className="kmr-name">{card.name}</span>
+                  <span className="kmr-name">{card.field}</span>
                 </figcaption>
               </div>
-            </figure>
-          ))}
-        </div>
-        <div className="kmr-allgrid" aria-hidden="true">
-          {ALL_TEAM.map((m, i) => (
-            <figure key={i} className="kmr-all" data-i={i}>
-              <div className="kmr-all-photo"><img src={m.photo} alt="" draggable={false} /></div>
-              <figcaption>{m.field}</figcaption>
             </figure>
           ))}
         </div>
