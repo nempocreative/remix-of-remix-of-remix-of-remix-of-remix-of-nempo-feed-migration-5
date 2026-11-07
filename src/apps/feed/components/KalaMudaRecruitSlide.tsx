@@ -8,6 +8,18 @@ import teamMember02 from '@/assets/team/team-member-02.jpg';
 import teamMember03 from '@/assets/team/team-member-03.jpg';
 import teamMember04 from '@/assets/team/team-member-04.jpg';
 import teamMember05 from '@/assets/team/team-member-05.jpg';
+import teamMember06 from '@/assets/team/team-member-06.jpg';
+import teamMember07 from '@/assets/team/team-member-07.jpg';
+import teamMember08 from '@/assets/team/team-member-08.jpg';
+import teamMember09 from '@/assets/team/team-member-09.jpg';
+import teamMember10 from '@/assets/team/team-member-10.jpg';
+import teamMember11 from '@/assets/team/team-member-11.jpg';
+import teamMember12 from '@/assets/team/team-member-12.jpg';
+import teamMember13 from '@/assets/team/team-member-13.jpg';
+import teamMember14 from '@/assets/team/team-member-14.jpg';
+import teamMember15 from '@/assets/team/team-member-15.jpg';
+import teamMember16 from '@/assets/team/team-member-16.jpg';
+import teamMember17 from '@/assets/team/team-member-17.jpg';
 import {
   buildKmrInfoCss,
   buildKmrTeamCss,
@@ -28,6 +40,28 @@ const TEAM_CARDS: TeamCard[] = [
   { name: 'Social Media', note: 'Jaga feed tetap hidup tiap hari', photo: teamMember03 },
   { name: 'Content Creator', note: 'Ubah ide jadi konten yang viral', photo: teamMember04 },
   { name: 'Designer', note: 'Racik visual yang bikin berhenti scroll', photo: teamMember05 },
+];
+
+
+/** Every team member on the NEMPO Garut website, in the same order. */
+const ALL_TEAM: { field: string; photo: string }[] = [
+  { field: 'Creative Lead', photo: teamMember01 },
+  { field: 'Videographer', photo: teamMember02 },
+  { field: 'Social Media', photo: teamMember03 },
+  { field: 'Content Creator', photo: teamMember04 },
+  { field: 'Designer', photo: teamMember05 },
+  { field: 'Photographer', photo: teamMember06 },
+  { field: 'Video Editor', photo: teamMember07 },
+  { field: 'Social Media', photo: teamMember08 },
+  { field: 'Videographer', photo: teamMember09 },
+  { field: 'Creative Lead', photo: teamMember10 },
+  { field: 'Content Creator', photo: teamMember11 },
+  { field: 'Event Creator', photo: teamMember12 },
+  { field: 'Wedding Creator', photo: teamMember13 },
+  { field: 'Photographer', photo: teamMember14 },
+  { field: 'Event Creator', photo: teamMember15 },
+  { field: 'Content Creator', photo: teamMember16 },
+  { field: 'Designer', photo: teamMember17 },
 ];
 
 const TEAM_CSS = buildKmrTeamCss();
@@ -126,7 +160,7 @@ function TeamSlide({ exportRef, slideNumber }: { exportRef?: RefObject<HTMLEleme
         className={`kmr-root kmt-root${paused ? ' is-paused' : ''}${reduced ? ' is-reduced' : ''}`}
         data-duration={KMR_DURATION}
         role="img"
-        aria-label={`Kala Muda Community — Are you ready jadi next creative team: ${TEAM_CARDS.map((card) => card.name).join(', ')}.`}
+        aria-label={`Kala Muda Community — Are you ready jadi next creative team: ${TEAM_CARDS.map((card) => card.name).join(', ')}, lalu seluruh ${ALL_TEAM.length} anggota tim NEMPO Garut.`}
       >
         <TeamBackdrop />
         <NempoHeader badge="OPEN RECRUITMENT" />
@@ -146,6 +180,14 @@ function TeamSlide({ exportRef, slideNumber }: { exportRef?: RefObject<HTMLEleme
                   <span className="kmr-name">{card.name}</span>
                 </figcaption>
               </div>
+            </figure>
+          ))}
+        </div>
+        <div className="kmr-allgrid" aria-hidden="true">
+          {ALL_TEAM.map((m, i) => (
+            <figure key={i} className="kmr-all" data-i={i}>
+              <div className="kmr-all-photo"><img src={m.photo} alt="" draggable={false} /></div>
+              <figcaption>{m.field}</figcaption>
             </figure>
           ))}
         </div>
