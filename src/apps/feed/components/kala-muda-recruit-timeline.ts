@@ -1,6 +1,6 @@
 /**
  * Nempo Feed slides 35–36 — Kala Muda recruitment timelines.
- * Slide 35 ("team") shows all five team-member cards together as a
+ * Slide 35 ("team") spotlights each team card in turn, then shows all five together as a
  * fanned group that rises in, floats, and drops out before the loop. Slide 36 ("info") reveals
  * requirements, divisions and the sign-up steps in sequence, holds,
  * then fades out for a seamless loop. The CSS keyframes are generated
@@ -11,10 +11,14 @@ export const KMR_DURATION = 15;
 export const KMR_TEAM_CARDS = 5;
 
 /* ---- Slide 35 team schedule (seconds) ----
- * All five cards rise in together as one fanned group (tiny stagger),
- * float gently while they hold, share a sheen sweep, then drop out
- * together just before the loop resets. */
-export const TEAM_ENTER = 0.3;
+ * Solo phase: each of the five cards takes the centre on its own, one
+ * after another (in, hold, slide out). Group phase: all five then rise
+ * in together as one fanned group, hold, and drop out before the loop. */
+export const SOLO_START = 0.3;
+export const SOLO_LEN = 1.6;
+export const SOLO_IN = 0.45;
+export const SOLO_OUT = 0.4;
+export const TEAM_ENTER = SOLO_START + KMR_TEAM_CARDS * SOLO_LEN + 0.2;
 export const TEAM_STAGGER = 0.1;
 export const TEAM_RISE = 1.0;
 export const TEAM_EXIT = 13.8;
@@ -49,18 +53,24 @@ export function buildKmrTeamCss(): string {
     const fan = teamFanPose(card);
     const hidden: Pose = { tx: fan.tx * 0.4, ty: fan.ty + 40, rot: 0, scale: 0.8, opacity: 0 };
     const start = TEAM_ENTER + card * TEAM_STAGGER;
+    const soloIn = SOLO_START + card * SOLO_LEN;
+    const soloOut = soloIn + SOLO_LEN - SOLO_OUT;
+    const solo: Pose = { tx: 0, ty: 0, rot: 0, scale: 1.12, opacity: 1 };
+    const soloHidden: Pose = { tx: 0, ty: 24, rot: 0, scale: 0.85, opacity: 0 };
+    const soloGone: Pose = { tx: -45, ty: 2, rot: -10, scale: 0.9, opacity: 0 };
     const f = (t: number, pose: Pose, ease = EASE) => `${pct(t)}{${poseCss(pose)};animation-timing-function:${ease}}`;
+    const soloFrames = `${f(0, soloHidden)}${f(soloIn, soloHidden, EASE_OUT)}${f(soloIn + SOLO_IN, solo)}${f(soloOut, solo)}${f(soloOut + SOLO_OUT, soloGone, 'step-end')}${f(soloOut + SOLO_OUT + 0.01, hidden)}`;
     rules.push(
-      `@keyframes kmr-card-${card}{${f(0, hidden)}${f(start, hidden, EASE_OUT)}${f(start + TEAM_RISE, fan)}${f(TEAM_EXIT, fan)}${f(TEAM_EXIT + TEAM_EXIT_LEN, { ...hidden, ty: fan.ty + 30 })}${f(KMR_DURATION, hidden)}}`,
+      `@keyframes kmr-card-${card}{${soloFrames}${f(start, hidden, EASE_OUT)}${f(start + TEAM_RISE, fan)}${f(TEAM_EXIT, fan)}${f(TEAM_EXIT + TEAM_EXIT_LEN, { ...hidden, ty: fan.ty + 30 })}${f(KMR_DURATION, hidden)}}`,
       `.kmr-card[data-i="${card}"]{animation-name:kmr-card-${card};z-index:${KMR_TEAM_CARDS - Math.abs(card - 2)}}`,
       `.kmr-card[data-i="${card}"] .kmr-float{animation-delay:${-card * 0.6}s}`,
     );
   }
   rules.push(
-    `@keyframes kmr-sheen{0%,${pct(2)}{transform:translateX(-130%)}${pct(3)},${pct(8)}{transform:translateX(130%)}${pct(8.001)}{transform:translateX(-130%)}${pct(9)},100%{transform:translateX(130%)}}`,
+    `@keyframes kmr-sheen{0%,${pct(2)}{transform:translateX(-130%)}${pct(3)},${pct(TEAM_ENTER + 1.6)}{transform:translateX(130%)}${pct(TEAM_ENTER + 1.601)}{transform:translateX(-130%)}${pct(TEAM_ENTER + 2.6)},100%{transform:translateX(130%)}}`,
     '.kmr-sheen{animation-name:kmr-sheen}',
   );
-  rules.push(opacityWindow('kmr-tagline', 1.6, TEAM_EXIT + 0.6, 0.5, 1));
+  rules.push(opacityWindow('kmr-tagline', TEAM_ENTER + 1.2, TEAM_EXIT + 0.6, 0.5, 1));
   return rules.join('\n');
 }
 
