@@ -1,0 +1,2 @@
+- [x] Slide 23 full video
+- [ ] Slide 24: kirim ide ke owner
