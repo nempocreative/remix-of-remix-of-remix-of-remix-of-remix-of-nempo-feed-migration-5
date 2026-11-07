@@ -13,13 +13,11 @@ import {
   KMR_DURATION,
   KMR_TEAM_CARDS,
   TEAM_ENTER,
-  TEAM_EXIT,
   TEAM_EXIT_LEN,
   TEAM_RISE,
   TEAM_STAGGER,
-  GRID_ENTER,
-  GRID_EXIT,
-  GRID_EXIT_LEN,
+  batchWindow,
+  KMR_BATCHES,
   KMR_ALL_TEAM,
   teamFanPose,
 } from './kala-muda-recruit-timeline';
@@ -30,25 +28,23 @@ describe('kala-muda-recruit-timeline', () => {
     expect(KMR_TEAM_CARDS).toBe(5);
   });
 
-  it('brings the five featured cards in together, not one by one', () => {
-    const css = buildKmrTeamCss();
-    for (let card = 0; card < KMR_TEAM_CARDS; card++) expect(css).toContain(`@keyframes kmr-card-${card}`);
-    expect(TEAM_ENTER + (KMR_TEAM_CARDS - 1) * TEAM_STAGGER + TEAM_RISE).toBeLessThan(2);
-    expect(css).not.toContain('ggn-');
-  });
-
-  it('then transitions to all 17 NEMPO Garut team members', () => {
+  it('shows all 17 NEMPO Garut team members five at a time', () => {
     const css = buildKmrTeamCss();
     expect(KMR_ALL_TEAM).toBe(17);
-    for (let m = 0; m < KMR_ALL_TEAM; m++) expect(css).toContain(`.kmr-all[data-i="${m}"]{animation-name:kmr-all-${m}}`);
-    expect(GRID_ENTER).toBeGreaterThanOrEqual(TEAM_EXIT + TEAM_EXIT_LEN - 0.2);
-    expect(GRID_EXIT + GRID_EXIT_LEN).toBeLessThanOrEqual(KMR_DURATION);
+    expect(KMR_BATCHES).toBe(4);
+    for (let card = 0; card < KMR_ALL_TEAM; card++) expect(css).toContain(`@keyframes kmr-card-${card}`);
+    // a batch's five cards land together, well before the batch leaves
+    expect((KMR_TEAM_CARDS - 1) * TEAM_STAGGER + TEAM_RISE).toBeLessThan(1.2);
+    for (let g = 1; g < KMR_BATCHES; g++) expect(batchWindow(g).enter).toBeGreaterThanOrEqual(batchWindow(g - 1).exit);
+    expect(batchWindow(KMR_BATCHES - 1).exit + TEAM_EXIT_LEN).toBeLessThanOrEqual(KMR_DURATION);
+    expect(css).not.toContain('ggn-');
   });
 
   it('fans the cards symmetrically with the middle card on top', () => {
     expect(teamFanPose(2)).toMatchObject({ tx: 0, rot: 0, scale: 1.06 });
     expect(teamFanPose(0).tx).toBe(-teamFanPose(4).tx);
     expect(buildKmrTeamCss()).toContain('.kmr-card[data-i="2"]{animation-name:kmr-card-2;z-index:5}');
+    expect(teamFanPose(0, 2).tx).toBe(-teamFanPose(1, 2).tx);
   });
 
   it('reveals info sections in order and fades out before the loop ends', () => {

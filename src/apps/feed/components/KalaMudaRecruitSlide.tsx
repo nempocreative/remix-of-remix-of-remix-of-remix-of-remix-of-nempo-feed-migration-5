@@ -32,15 +32,6 @@ import './KalaMudaRecruitSlide.css';
 
 export type KalaMudaRecruitMode = 'team' | 'info';
 
-type TeamCard = { name: string; note: string; photo: string };
-
-const TEAM_CARDS: TeamCard[] = [
-  { name: 'Creative Lead', note: 'Nahkoda ide dan konsep konten', photo: teamMember01 },
-  { name: 'Videographer', note: 'Bikin momen jadi video sinematik', photo: teamMember02 },
-  { name: 'Social Media', note: 'Jaga feed tetap hidup tiap hari', photo: teamMember03 },
-  { name: 'Content Creator', note: 'Ubah ide jadi konten yang viral', photo: teamMember04 },
-  { name: 'Designer', note: 'Racik visual yang bikin berhenti scroll', photo: teamMember05 },
-];
 
 
 /** Every team member on the NEMPO Garut website, in the same order. */
@@ -160,7 +151,7 @@ function TeamSlide({ exportRef, slideNumber }: { exportRef?: RefObject<HTMLEleme
         className={`kmr-root kmt-root${paused ? ' is-paused' : ''}${reduced ? ' is-reduced' : ''}`}
         data-duration={KMR_DURATION}
         role="img"
-        aria-label={`Kala Muda Community — Are you ready jadi next creative team: ${TEAM_CARDS.map((card) => card.name).join(', ')}, lalu seluruh ${ALL_TEAM.length} anggota tim NEMPO Garut.`}
+        aria-label={`Kala Muda Community — Are you ready jadi next creative team: seluruh ${ALL_TEAM.length} anggota tim NEMPO Garut, lima-lima bergantian.`}
       >
         <TeamBackdrop />
         <NempoHeader badge="OPEN RECRUITMENT" />
@@ -168,8 +159,8 @@ function TeamSlide({ exportRef, slideNumber }: { exportRef?: RefObject<HTMLEleme
           Are You Ready Jadi <em>Next Creative Team?</em>
         </h2>
         <div className="kmr-stage" aria-hidden="true">
-          {TEAM_CARDS.map((card, i) => (
-            <figure key={card.name} className="kmr-card" data-i={i}>
+          {ALL_TEAM.map((card, i) => (
+            <figure key={i} className="kmr-card" data-i={i}>
               <div className="kmr-float">
                 <div className="kmr-photo">
                   <img src={card.photo} alt="" width={768} height={1024} draggable={false} />
@@ -177,17 +168,9 @@ function TeamSlide({ exportRef, slideNumber }: { exportRef?: RefObject<HTMLEleme
                 </div>
                 <figcaption>
                   <span className="kmr-num">{String(i + 1).padStart(2, '0')}</span>
-                  <span className="kmr-name">{card.name}</span>
+                  <span className="kmr-name">{card.field}</span>
                 </figcaption>
               </div>
-            </figure>
-          ))}
-        </div>
-        <div className="kmr-allgrid" aria-hidden="true">
-          {ALL_TEAM.map((m, i) => (
-            <figure key={i} className="kmr-all" data-i={i}>
-              <div className="kmr-all-photo"><img src={m.photo} alt="" draggable={false} /></div>
-              <figcaption>{m.field}</figcaption>
             </figure>
           ))}
         </div>
