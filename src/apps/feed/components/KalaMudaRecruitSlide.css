@@ -63,7 +63,7 @@
 .kmt-band { position: absolute; left: -20cqw; right: -20cqw; top: 70cqw; height: 22cqw; background: var(--kmt-band); transform: rotate(-12deg); }
 .kmt-word {
   position: absolute; left: 0; right: 0; top: 92cqw; text-align: center; white-space: nowrap;
-  font-size: 14.5cqw; font-weight: 900; line-height: 1; letter-spacing: -.02em !important;
+  font-size: 12.5cqw; font-weight: 900; line-height: 1; letter-spacing: -.02em !important;
   color: transparent; -webkit-text-stroke: .3cqw var(--kmt-line);
 }
 .kmt-dots { position: absolute; right: 6cqw; top: 104cqw; width: 18cqw; height: 12cqw; background-image: var(--kmt-dots); background-size: 2.4cqw 2.4cqw; }
