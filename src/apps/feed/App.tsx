@@ -2774,6 +2774,7 @@ function App() {
   const [isDownloading, setIsDownloading] = useState(false);
   const [preparedNempoPng, setPreparedNempoPng] = useState<{
     url: string;
+    blob: Blob;
     fileName: string;
     key: string;
   } | null>(null);
@@ -3046,7 +3047,7 @@ function App() {
         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
       if (isAppleTouchBrowser) {
-        setPreparedNempoPng({ url: generatedObjectUrl, fileName, key: currentDownloadKey });
+        setPreparedNempoPng({ url: generatedObjectUrl, blob: pngBlob, fileName, key: currentDownloadKey });
         return;
       }
 
@@ -3340,6 +3341,15 @@ function App() {
                 <a
                   href={preparedNempoPng.url}
                   download={preparedNempoPng.fileName}
+                  onClick={(event) => {
+                    const file = new File([preparedNempoPng.blob], preparedNempoPng.fileName, { type: 'image/png' });
+                    if (navigator.canShare?.({ files: [file] })) {
+                      event.preventDefault();
+                      navigator.share({ files: [file], title: preparedNempoPng.fileName }).catch(() => {
+                        /* user cancelled or sharing blocked; the picture link still works */
+                      });
+                    }
+                  }}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-[#062f4d] px-4 py-2 text-[11px] font-black text-white shadow-[0_8px_20px_rgba(0,40,78,0.2)] transition-colors hover:bg-[#0b4d69] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffdd00] focus-visible:ring-offset-2"
