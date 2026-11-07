@@ -25,14 +25,16 @@ export function GgsOpenHoursSlide({ exportRef }: { exportRef?: RefObject<HTMLEle
       />
       <div className="ggh-fade" />
       <section className="ggh-copy">
-        <h2 className="ggh-title">We are open</h2>
-        <span className="ggh-rule" aria-hidden="true" />
+        <p className="ggh-kicker">Jam Operasional</p>
+        <h2 className="ggh-title">
+          We are open <em>setiap hari</em>
+        </h2>
         <p className="ggh-hours">
           <span>09.00</span>
           <em>&ndash;</em>
           <span>21.00</span>
         </p>
-        <p className="ggh-days">Setiap hari</p>
+        <p className="ggh-days">Walk-in &amp; booking welcome</p>
       </section>
       <img className="ggh-watermark" src={ggsWatermark.url} alt="" aria-hidden="true" />
     </div>
