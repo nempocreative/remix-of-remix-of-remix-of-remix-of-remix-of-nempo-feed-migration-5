@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as NempoFeedIndexRouteImport } from './routes/nempo-feed.index'
+import { Route as NempoFeedSplatRouteImport } from './routes/nempo-feed.$'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const NempoFeedIndexRoute = NempoFeedIndexRouteImport.update({
+  id: '/nempo-feed/',
+  path: '/nempo-feed/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NempoFeedSplatRoute = NempoFeedSplatRouteImport.update({
+  id: '/nempo-feed/$',
+  path: '/nempo-feed/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/nempo-feed/$': typeof NempoFeedSplatRoute
+  '/nempo-feed/': typeof NempoFeedIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/nempo-feed/$': typeof NempoFeedSplatRoute
+  '/nempo-feed': typeof NempoFeedIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/nempo-feed/$': typeof NempoFeedSplatRoute
+  '/nempo-feed/': typeof NempoFeedIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/nempo-feed/$' | '/nempo-feed/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/nempo-feed/$' | '/nempo-feed'
+  id: '__root__' | '/' | '/nempo-feed/$' | '/nempo-feed/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  NempoFeedSplatRoute: typeof NempoFeedSplatRoute
+  NempoFeedIndexRoute: typeof NempoFeedIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/nempo-feed/': {
+      id: '/nempo-feed/'
+      path: '/nempo-feed'
+      fullPath: '/nempo-feed/'
+      preLoaderRoute: typeof NempoFeedIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nempo-feed/$': {
+      id: '/nempo-feed/$'
+      path: '/nempo-feed/$'
+      fullPath: '/nempo-feed/$'
+      preLoaderRoute: typeof NempoFeedSplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  NempoFeedSplatRoute: NempoFeedSplatRoute,
+  NempoFeedIndexRoute: NempoFeedIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
