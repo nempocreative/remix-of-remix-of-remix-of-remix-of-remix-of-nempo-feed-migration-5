@@ -174,7 +174,6 @@ function TeamSlide({ exportRef, slideNumber }: { exportRef?: RefObject<HTMLEleme
             </figure>
           ))}
         </div>
-        <p className="kmr-tagline" aria-hidden="true">Kala Muda Community · NEMPO Garut</p>
         <NempoFooter />
       </div>
     </div>
