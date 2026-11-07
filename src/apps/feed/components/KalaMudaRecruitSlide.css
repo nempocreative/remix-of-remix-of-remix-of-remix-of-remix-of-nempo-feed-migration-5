@@ -54,6 +54,7 @@
 /* ---- Slide 35: Nempo header/footer + designed backdrop ---- */
 .kmt-root { background: var(--kmt-bg); }
 .kmt-root .kmr-title { top: 22cqw; font-size: 5.8cqw; }
+.kmt-root .kmr-tagline { top: 107cqw; }
 .kmt-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
 .kmt-grid { position: absolute; inset: 0; background-image: var(--kmt-grid); background-size: 6cqw 6cqw; mask-image: radial-gradient(circle at 50% 55%, #000 0%, transparent 70%); }
 .kmt-ring { position: absolute; border-radius: 50%; border: .35cqw solid var(--kmt-line); }
