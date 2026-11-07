@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "32b89fa2-ced6-4f6c-972c-6d742303e68a",
-  "project_id": "fcffb3c0-2716-4340-bef5-0d7c2869038a",
-  "url": "/__l5e/assets-v1/32b89fa2-ced6-4f6c-972c-6d742303e68a/ggs-open-hours-hair-motion.mp4",
-  "r2_key": "a/v1/fcffb3c0-2716-4340-bef5-0d7c2869038a/32b89fa2-ced6-4f6c-972c-6d742303e68a/ggs-open-hours-hair-motion.mp4",
-  "original_filename": "ggs-open-hours-hair-motion.mp4",
-  "size": 6787421,
   "content_type": "video/mp4",
-  "created_at": "2026-11-07T20:51:06Z"
+  "created_at": "2026-11-07T20:51:06Z",
+  "original_filename": "ggs-open-hours-hair-motion.mp4",
+  "project_id": "4253a708-573f-4b4c-8f15-b1b16b4bb48b",
+  "r2_key": "a/v1/4253a708-573f-4b4c-8f15-b1b16b4bb48b/32b89fa2-ced6-4f6c-972c-6d742303e68a/ggs-open-hours-hair-motion.mp4",
+  "size": 6787421,
+  "url": "/__l5e/assets-v1/32b89fa2-ced6-4f6c-972c-6d742303e68a/ggs-open-hours-hair-motion.mp4",
+  "version": 1
 }

@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "3d9f76c6-eaff-481d-8e08-2b6138ed2557",
-  "project_id": "fcffb3c0-2716-4340-bef5-0d7c2869038a",
-  "url": "/__l5e/assets-v1/3d9f76c6-eaff-481d-8e08-2b6138ed2557/ggs-story-05-peduli-penampilan-feed.png",
-  "r2_key": "a/v1/fcffb3c0-2716-4340-bef5-0d7c2869038a/3d9f76c6-eaff-481d-8e08-2b6138ed2557/ggs-story-05-peduli-penampilan-feed.png",
-  "original_filename": "ggs-story-05-peduli-penampilan-feed.png",
-  "size": 9621386,
   "content_type": "image/png",
-  "created_at": "2026-11-07T20:51:18Z"
+  "created_at": "2026-11-07T20:51:18Z",
+  "original_filename": "ggs-story-05-peduli-penampilan-feed.png",
+  "project_id": "4253a708-573f-4b4c-8f15-b1b16b4bb48b",
+  "r2_key": "a/v1/4253a708-573f-4b4c-8f15-b1b16b4bb48b/3d9f76c6-eaff-481d-8e08-2b6138ed2557/ggs-story-05-peduli-penampilan-feed.png",
+  "size": 9621386,
+  "url": "/__l5e/assets-v1/3d9f76c6-eaff-481d-8e08-2b6138ed2557/ggs-story-05-peduli-penampilan-feed.png",
+  "version": 1
 }
