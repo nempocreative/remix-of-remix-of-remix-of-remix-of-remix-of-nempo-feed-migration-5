@@ -2773,7 +2773,6 @@ function App() {
   const [isDownloading, setIsDownloading] = useState(false);
   const [preparedNempoPng, setPreparedNempoPng] = useState<{
     url: string;
-    blob: Blob;
     fileName: string;
     key: string;
   } | null>(null);
@@ -3046,7 +3045,7 @@ function App() {
         (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
 
       if (isAppleTouchBrowser) {
-        setPreparedNempoPng({ url: generatedObjectUrl, blob: pngBlob, fileName, key: currentDownloadKey });
+        setPreparedNempoPng({ url: generatedObjectUrl, fileName, key: currentDownloadKey });
         return;
       }
 
@@ -3274,25 +3273,18 @@ function App() {
                   Video 16 detik · 1080×1440 · 30 fps, persis seperti pratinjau.
                 </p>
               </>
-            ) : activeFeed === 'client' && activeClientSlide === 23 ? (
-              <Button asChild>
-                <a href={ggsOpenHoursVideo.url} download="GGS-Feed-23-We-Are-Open.mp4">
-                  <Download className="h-4 w-4" aria-hidden="true" />
-                  Download video · MP4
-                </a>
-              </Button>
-            ) : activeFeed === 'client' && (activeClientSlide === 21 || activeClientSlide === 22) ? (
+            ) : activeFeed === 'client' && (activeClientSlide === 21 || activeClientSlide === 22 || activeClientSlide === 23) ? (
               <>
                 <a
-                  href={activeClientSlide === 21 ? ggsNailCardsVideo.url : ggsHairCardsVideo.url}
-                  download={activeClientSlide === 21 ? 'GGS-Feed-21-Pilih-Nail-Art.mp4' : 'GGS-Feed-22-Pilih-Model-Rambut.mp4'}
+                  href={activeClientSlide === 21 ? ggsNailCardsVideo.url : activeClientSlide === 22 ? ggsHairCardsVideo.url : ggsOpenHoursVideo.url}
+                  download={activeClientSlide === 21 ? 'GGS-Feed-21-Pilih-Nail-Art.mp4' : activeClientSlide === 22 ? 'GGS-Feed-22-Pilih-Model-Rambut.mp4' : 'GGS-Feed-23-We-Are-Open.mp4'}
                   className="inline-flex items-center gap-2 rounded-full bg-[#062f4d] px-4 py-2 text-[11px] font-black text-white shadow-[0_8px_20px_rgba(0,40,78,0.2)] transition-colors hover:bg-[#0b4d69] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffdd00] focus-visible:ring-offset-2"
                 >
                   <Download className="h-3.5 w-3.5" aria-hidden="true" />
                   Download video · MP4
                 </a>
                 <p className="max-w-[92vw] text-center text-[10px] font-medium text-slate-600">
-                  Video 15 detik · 1080×1440 · 30 fps · kualitas tinggi, persis seperti pratinjau.
+                  Video {activeClientSlide === 23 ? 8 : 15} detik · 1080×1440 · 30 fps · kualitas tinggi, persis seperti pratinjau.
                 </p>
               </>
             ) : isGgsRatusVideoSlide ? (
@@ -3340,17 +3332,6 @@ function App() {
                 <a
                   href={preparedNempoPng.url}
                   download={preparedNempoPng.fileName}
-                  onClick={(event) => {
-                    const file = new File([preparedNempoPng.blob], preparedNempoPng.fileName, { type: 'image/png' });
-                    if (navigator.canShare?.({ files: [file] })) {
-                      event.preventDefault();
-                      navigator.share({ files: [file], title: preparedNempoPng.fileName }).catch((error: DOMException) => {
-                        if (error?.name !== 'AbortError') {
-                          setDownloadError('Simpan langsung diblokir di pratinjau. Coba dari situs yang sudah dipublikasikan.');
-                        }
-                      });
-                    }
-                  }}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-[#062f4d] px-4 py-2 text-[11px] font-black text-white shadow-[0_8px_20px_rgba(0,40,78,0.2)] transition-colors hover:bg-[#0b4d69] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffdd00] focus-visible:ring-offset-2"
