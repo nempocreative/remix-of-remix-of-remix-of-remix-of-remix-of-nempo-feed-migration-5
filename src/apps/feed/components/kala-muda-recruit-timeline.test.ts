@@ -17,6 +17,8 @@ import {
   TEAM_EXIT_LEN,
   TEAM_RISE,
   TEAM_STAGGER,
+  SOLO_LEN,
+  SOLO_START,
   teamFanPose,
 } from './kala-muda-recruit-timeline';
 
@@ -26,13 +28,14 @@ describe('kala-muda-recruit-timeline', () => {
     expect(KMR_TEAM_CARDS).toBe(5);
   });
 
-  it('brings all five team cards in together instead of one by one', () => {
+  it('shows each card alone in turn, then all five together', () => {
     const css = buildKmrTeamCss();
     for (let card = 0; card < KMR_TEAM_CARDS; card++) {
       expect(css).toContain(`@keyframes kmr-card-${card}`);
     }
-    // every card is on screen within ~1.7 s and stays until the shared exit
-    expect(TEAM_ENTER + (KMR_TEAM_CARDS - 1) * TEAM_STAGGER + TEAM_RISE).toBeLessThan(2);
+    // solo turns finish before the group enters, and the group holds at least 3 s
+    expect(SOLO_START + KMR_TEAM_CARDS * SOLO_LEN).toBeLessThanOrEqual(TEAM_ENTER);
+    expect(TEAM_EXIT - (TEAM_ENTER + (KMR_TEAM_CARDS - 1) * TEAM_STAGGER + TEAM_RISE)).toBeGreaterThan(3);
     expect(TEAM_EXIT + TEAM_EXIT_LEN).toBeLessThanOrEqual(KMR_DURATION);
     expect(css).not.toContain('ggn-');
   });
