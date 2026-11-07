@@ -77,6 +77,21 @@
   --kmr-card-shadow: 0 2.4cqw 6cqw color-mix(in srgb, #022038 40%, transparent), 0 .4cqw 1.2cqw color-mix(in srgb, #022038 24%, transparent);
   --kmr-sheen: linear-gradient(105deg, transparent 30%, color-mix(in srgb, #ffffff 55%, transparent) 50%, transparent 70%);
 }
+/* Nempo Feed slide 35: designed backdrop + Nempo header/footer. */
+.kmt-root {
+  --kmt-bg: radial-gradient(circle at 50% 58%, #1a7fd6 0%, #0b4f93 42%, #062f4d 100%);
+  --kmt-grid: linear-gradient(color-mix(in srgb, #ffffff 7%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in srgb, #ffffff 7%, transparent) 1px, transparent 1px);
+  --kmt-line: color-mix(in srgb, #ffffff 14%, transparent);
+  --kmt-line-strong: color-mix(in srgb, #ffffff 28%, transparent);
+  --kmt-band: linear-gradient(90deg, transparent 0%, color-mix(in srgb, #ffdd00 22%, transparent) 30%, color-mix(in srgb, #ffdd00 34%, transparent) 50%, color-mix(in srgb, #ffdd00 22%, transparent) 70%, transparent 100%);
+  --kmt-dots: radial-gradient(circle, color-mix(in srgb, #ffdd00 70%, transparent) 22%, transparent 26%);
+  --kmt-text: #ffffff;
+  --kmt-gold: #f2d1a2;
+  --kmt-logo-bg: color-mix(in srgb, #ffffff 95%, transparent);
+  --kmt-logo-shadow: 0 1.4cqw 3.2cqw color-mix(in srgb, #000000 20%, transparent);
+  --kmt-pill: color-mix(in srgb, #062f4d 30%, transparent);
+  --kmt-pill-strong: color-mix(in srgb, #062f4d 80%, transparent);
+}
 /* GGS Story cover (reels 9:16): brand palette for the cover slide. */
 .ggc-root {
   --ggc-ink: #3d0b2a;

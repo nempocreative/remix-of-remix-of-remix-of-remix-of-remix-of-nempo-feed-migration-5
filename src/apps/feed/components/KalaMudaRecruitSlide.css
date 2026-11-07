@@ -25,33 +25,69 @@
 }
 .kmr-title em { font-style: normal; color: var(--kmr-accent); }
 
-.kmr-stage { position: absolute; inset: 0; z-index: 3; perspective: 140cqw; transform-style: preserve-3d; }
+.kmr-stage { position: absolute; inset: 0; z-index: 3; }
 .kmr-card {
-  position: absolute; left: 26cqw; top: 34cqw; width: 48cqw; padding: 1.8cqw 1.8cqw 0; border-radius: 2.4cqw;
-  background: var(--kmr-card); box-shadow: var(--kmr-card-shadow); transform-origin: 50% 60%;
-  backface-visibility: hidden; will-change: transform;
+  position: absolute; left: 35cqw; top: 43cqw; width: 30cqw; transform-origin: 50% 80%;
+  backface-visibility: hidden; will-change: transform, opacity;
   animation-duration: 15s; animation-iteration-count: infinite; animation-fill-mode: both; animation-timing-function: linear;
 }
-.kmr-photo { position: relative; overflow: hidden; aspect-ratio: 3 / 4; border-radius: 1.4cqw; background: var(--kmr-paper); }
+.kmr-float {
+  padding: 1.3cqw 1.3cqw 0; border-radius: 2cqw; background: var(--kmr-card); box-shadow: var(--kmr-card-shadow);
+  animation: kmr-float 3s ease-in-out infinite;
+}
+@keyframes kmr-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-1.4cqw); } }
+.kmr-photo { position: relative; overflow: hidden; aspect-ratio: 3 / 4; border-radius: 1.2cqw; background: var(--kmr-paper); }
 .kmr-photo img { display: block; width: 100%; height: 100%; object-fit: cover; }
 .kmr-sheen {
   position: absolute; inset: 0; background: var(--kmr-sheen); transform: translateX(-130%);
   animation-duration: 15s; animation-iteration-count: infinite; animation-fill-mode: both; animation-timing-function: cubic-bezier(.4,0,.2,1);
 }
-.kmr-card figcaption { display: flex; align-items: center; gap: 2cqw; height: 7.4cqw; padding: 0 .6cqw; }
-.kmr-num { font-weight: 800; font-size: 3.4cqw; color: var(--kmr-accent-deep); }
-.kmr-name { font-size: 2.4cqw; font-weight: 700; text-transform: uppercase; letter-spacing: .12em !important; white-space: nowrap; color: var(--kmr-ink); }
-.kmr-notes { position: absolute; z-index: 4; left: 6cqw; right: 6cqw; top: 106.5cqw; height: 5cqw; }
-.kmr-note {
-  position: absolute; inset: 0; text-align: center; font-size: 3.3cqw; font-weight: 500; color: rgba(255, 255, 255, 0.88); opacity: 0;
-  animation-duration: 15s; animation-iteration-count: infinite; animation-fill-mode: both; animation-timing-function: ease-in-out;
+.kmr-card figcaption { display: flex; align-items: center; gap: 1.2cqw; height: 5.4cqw; padding: 0 .4cqw; }
+.kmr-num { font-weight: 800; font-size: 2.4cqw; color: var(--kmr-accent-deep); }
+.kmr-name { font-size: 1.75cqw; font-weight: 800; text-transform: uppercase; letter-spacing: .08em !important; white-space: nowrap; color: var(--kmr-ink); }
+.kmr-tagline {
+  position: absolute; z-index: 4; left: 6cqw; right: 6cqw; top: 104cqw; text-align: center;
+  font-size: 3cqw; font-weight: 700; color: var(--kmr-accent-soft); opacity: 0;
+  animation: kmr-tagline 15s ease-in-out infinite both;
 }
-.kmr-final { animation-name: kmr-final; font-weight: 700; color: #ffffff; }
-.kmr-dots { position: absolute; z-index: 4; left: 0; right: 0; top: 113.6cqw; display: flex; justify-content: center; gap: 3cqw; }
-.kmr-dot {
-  width: 1.3cqw; height: 1.3cqw; border-radius: 1cqw; background: var(--kmr-accent); opacity: .35;
-  animation-duration: 15s; animation-iteration-count: infinite; animation-fill-mode: both; animation-timing-function: ease-in-out;
+
+/* ---- Slide 35: Nempo header/footer + designed backdrop ---- */
+.kmt-root { background: var(--kmt-bg); }
+.kmt-root .kmr-title { top: 22cqw; font-size: 5.8cqw; }
+.kmt-bg { position: absolute; inset: 0; z-index: 0; overflow: hidden; pointer-events: none; }
+.kmt-grid { position: absolute; inset: 0; background-image: var(--kmt-grid); background-size: 6cqw 6cqw; mask-image: radial-gradient(circle at 50% 55%, #000 0%, transparent 70%); }
+.kmt-ring { position: absolute; border-radius: 50%; border: .35cqw solid var(--kmt-line); }
+.kmt-ring-a { width: 110cqw; height: 110cqw; left: -5cqw; top: 22cqw; }
+.kmt-ring-b { width: 78cqw; height: 78cqw; left: 11cqw; top: 38cqw; border-style: dashed; animation: kmt-spin 60s linear infinite; }
+@keyframes kmt-spin { to { transform: rotate(360deg); } }
+.kmt-band { position: absolute; left: -20cqw; right: -20cqw; top: 70cqw; height: 22cqw; background: var(--kmt-band); transform: rotate(-12deg); }
+.kmt-word {
+  position: absolute; left: 0; right: 0; top: 92cqw; text-align: center; white-space: nowrap;
+  font-size: 19cqw; font-weight: 900; line-height: 1; letter-spacing: -.02em !important;
+  color: transparent; -webkit-text-stroke: .3cqw var(--kmt-line);
 }
+.kmt-dots { position: absolute; right: 5cqw; top: 26cqw; width: 18cqw; height: 12cqw; background-image: var(--kmt-dots); background-size: 2.4cqw 2.4cqw; }
+.kmt-spark { position: absolute; color: var(--kmr-accent); line-height: 1; animation: kmt-twinkle 3s ease-in-out infinite; }
+.kmt-spark-a { left: 7cqw; top: 36cqw; font-size: 4.6cqw; }
+.kmt-spark-b { right: 9cqw; top: 96cqw; font-size: 3.4cqw; animation-delay: -1s; }
+.kmt-spark-c { left: 12cqw; top: 100cqw; font-size: 2.6cqw; animation-delay: -2s; }
+@keyframes kmt-twinkle { 0%, 100% { opacity: .35; transform: scale(.8); } 50% { opacity: 1; transform: scale(1.1); } }
+
+.kmt-header { position: absolute; z-index: 6; top: 7.5cqw; left: 7.5cqw; right: 7.5cqw; display: flex; align-items: flex-start; justify-content: space-between; }
+.kmt-brand { display: flex; align-items: center; gap: 2.2cqw; }
+.kmt-logo { display: flex; width: 8cqw; height: 8cqw; padding: 1.1cqw; border-radius: 2.5cqw; background: var(--kmt-logo-bg); box-shadow: var(--kmt-logo-shadow); }
+.kmt-logo img { width: 100%; height: 100%; object-fit: contain; }
+.kmt-name { display: flex; flex-direction: column; gap: .8cqw; padding-left: 2.2cqw; border-left: 1px solid var(--kmt-line-strong); line-height: 1; color: var(--kmt-text); }
+.kmt-name strong { font-size: 2.2cqw; font-weight: 800; letter-spacing: .1em !important; }
+.kmt-name span { font-family: 'Nunito', 'DM Sans', sans-serif; font-size: 1.65cqw; font-weight: 500; letter-spacing: .12em !important; }
+.kmt-name b { font-size: 2cqw; color: var(--kmt-gold); }
+.kmt-badge { padding: 1.1cqw 2.2cqw; border-radius: 99px; border: 1px solid var(--kmt-line-strong); background: var(--kmt-pill); color: var(--kmt-text); font-size: 1.75cqw; font-weight: 900; letter-spacing: .02em !important; white-space: nowrap; }
+
+.kmt-footer { position: absolute; z-index: 6; bottom: 6.6cqw; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 1.8cqw; white-space: nowrap; }
+.kmt-pill { display: inline-flex; align-items: center; gap: 1.6cqw; padding: 1.1cqw 2.2cqw; border-radius: 99px; background: var(--kmt-pill-strong); color: var(--kmt-text); font-size: 2cqw; font-weight: 700; }
+.kmt-pill svg { width: 2.5cqw; height: 2.5cqw; }
+.kmt-pill-wa { border: 1px solid var(--kmt-line-strong); font-size: 1.65cqw; gap: 1.1cqw; padding: 1.1cqw 1.8cqw; }
+.kmt-pill strong { letter-spacing: .04em !important; }
 
 /* ---- Slide 36: info ---- */
 .kmi-root { display: block; }
