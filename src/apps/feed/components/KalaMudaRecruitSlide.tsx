@@ -1,5 +1,6 @@
 import { useEffect, useState, type RefObject } from 'react';
 import { Pause, Play, RotateCcw } from 'lucide-react';
+import { FaInstagram, FaTiktok, FaWhatsapp } from 'react-icons/fa6';
 import { Button } from '@/components/ui/button';
 import kalaMudaLogo from '@/assets/kala-muda-logo.png';
 import teamMember01 from '@/assets/team/team-member-01.jpg';
@@ -70,6 +71,49 @@ function KmrHeader() {
   );
 }
 
+/** Slide 35 header/footer, matching the Nempo Feed story slides (e.g. slide 20). */
+function NempoHeader({ badge }: { badge: string }) {
+  return (
+    <header className="kmt-header">
+      <span className="kmt-brand">
+        <span className="kmt-logo">
+          <img src="/nempo-feed/assets/nempo-new.webp" alt="Logo N resmi Nempo" draggable={false} />
+        </span>
+        <span className="kmt-name">
+          <strong>NEMPO.ID</strong>
+          <span><b>×</b> Kala Muda</span>
+        </span>
+      </span>
+      <span className="kmt-badge">{badge}</span>
+    </header>
+  );
+}
+
+function NempoFooter() {
+  return (
+    <footer className="kmt-footer">
+      <span className="kmt-pill kmt-pill-wa"><FaWhatsapp aria-hidden="true" />0857 2498 1356</span>
+      <span className="kmt-pill"><FaInstagram aria-hidden="true" /><FaTiktok aria-hidden="true" /><strong>@nempo.id</strong></span>
+    </footer>
+  );
+}
+
+function TeamBackdrop() {
+  return (
+    <div className="kmt-bg" aria-hidden="true">
+      <span className="kmt-grid" />
+      <span className="kmt-ring kmt-ring-a" />
+      <span className="kmt-ring kmt-ring-b" />
+      <span className="kmt-band" />
+      <span className="kmt-word">KALA MUDA</span>
+      <span className="kmt-spark kmt-spark-a">✦</span>
+      <span className="kmt-spark kmt-spark-b">✦</span>
+      <span className="kmt-spark kmt-spark-c">✦</span>
+      <span className="kmt-dots" />
+    </div>
+  );
+}
+
 function TeamSlide({ exportRef, slideNumber }: { exportRef?: RefObject<HTMLElement | null>; slideNumber: number }) {
   const { paused, reduced, replayKey, controls } = useMotionControls(slideNumber);
   return (
@@ -79,39 +123,34 @@ function TeamSlide({ exportRef, slideNumber }: { exportRef?: RefObject<HTMLEleme
       <div
         key={replayKey}
         ref={exportRef as RefObject<HTMLDivElement | null>}
-        className={`kmr-root${paused ? ' is-paused' : ''}${reduced ? ' is-reduced' : ''}`}
+        className={`kmr-root kmt-root${paused ? ' is-paused' : ''}${reduced ? ' is-reduced' : ''}`}
         data-duration={KMR_DURATION}
         role="img"
         aria-label={`Kala Muda Community — Are you ready jadi next creative team: ${TEAM_CARDS.map((card) => card.name).join(', ')}.`}
       >
-        <div className="kmr-glow" aria-hidden="true" />
-        <KmrHeader />
+        <TeamBackdrop />
+        <NempoHeader badge="OPEN RECRUITMENT" />
         <h2 className="kmr-title" aria-hidden="true">
           Are You Ready Jadi <em>Next Creative Team?</em>
         </h2>
         <div className="kmr-stage" aria-hidden="true">
           {TEAM_CARDS.map((card, i) => (
             <figure key={card.name} className="kmr-card" data-i={i}>
-              <div className="kmr-photo">
-                <img src={card.photo} alt="" width={768} height={1024} draggable={false} />
-                <span className="kmr-sheen" />
+              <div className="kmr-float">
+                <div className="kmr-photo">
+                  <img src={card.photo} alt="" width={768} height={1024} draggable={false} />
+                  <span className="kmr-sheen" />
+                </div>
+                <figcaption>
+                  <span className="kmr-num">{String(i + 1).padStart(2, '0')}</span>
+                  <span className="kmr-name">{card.name}</span>
+                </figcaption>
               </div>
-              <figcaption>
-                <span className="kmr-num">{String(i + 1).padStart(2, '0')}</span>
-                <span className="kmr-name">{card.name}</span>
-              </figcaption>
             </figure>
           ))}
         </div>
-        <div className="kmr-notes" aria-hidden="true">
-          {TEAM_CARDS.map((card, i) => (
-            <p key={card.name} className="kmr-note" data-i={i}>{card.note}</p>
-          ))}
-          <p className="kmr-note kmr-final">Kala Muda Community · NEMPO Garut</p>
-        </div>
-        <div className="kmr-dots" aria-hidden="true">
-          {TEAM_CARDS.map((card, i) => <span key={card.name} className="kmr-dot" data-i={i} />)}
-        </div>
+        <p className="kmr-tagline" aria-hidden="true">Kala Muda Community · NEMPO Garut</p>
+        <NempoFooter />
       </div>
     </div>
   );

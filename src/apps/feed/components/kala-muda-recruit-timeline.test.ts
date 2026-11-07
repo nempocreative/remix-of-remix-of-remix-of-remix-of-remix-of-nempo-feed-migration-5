@@ -12,6 +12,12 @@ import {
   INFO_WHO_IN,
   KMR_DURATION,
   KMR_TEAM_CARDS,
+  TEAM_ENTER,
+  TEAM_EXIT,
+  TEAM_EXIT_LEN,
+  TEAM_RISE,
+  TEAM_STAGGER,
+  teamFanPose,
 } from './kala-muda-recruit-timeline';
 
 describe('kala-muda-recruit-timeline', () => {
@@ -20,16 +26,21 @@ describe('kala-muda-recruit-timeline', () => {
     expect(KMR_TEAM_CARDS).toBe(5);
   });
 
-  it('generates kmr-prefixed team keyframes for every card, note and dot', () => {
+  it('brings all five team cards in together instead of one by one', () => {
     const css = buildKmrTeamCss();
     for (let card = 0; card < KMR_TEAM_CARDS; card++) {
       expect(css).toContain(`@keyframes kmr-card-${card}`);
-      expect(css).toContain(`.kmr-card[data-i="${card}"]{animation-name:kmr-card-${card};z-index:${KMR_TEAM_CARDS - card}}`);
-      expect(css).toContain(`@keyframes kmr-note-${card}`);
-      expect(css).toContain(`@keyframes kmr-dot-${card}`);
     }
-    expect(css).toContain('@keyframes kmr-final');
+    // every card is on screen within ~1.7 s and stays until the shared exit
+    expect(TEAM_ENTER + (KMR_TEAM_CARDS - 1) * TEAM_STAGGER + TEAM_RISE).toBeLessThan(2);
+    expect(TEAM_EXIT + TEAM_EXIT_LEN).toBeLessThanOrEqual(KMR_DURATION);
     expect(css).not.toContain('ggn-');
+  });
+
+  it('fans the cards symmetrically with the middle card on top', () => {
+    expect(teamFanPose(2)).toMatchObject({ tx: 0, rot: 0, scale: 1.06 });
+    expect(teamFanPose(0).tx).toBe(-teamFanPose(4).tx);
+    expect(buildKmrTeamCss()).toContain('.kmr-card[data-i="2"]{animation-name:kmr-card-2;z-index:5}');
   });
 
   it('reveals info sections in order and fades out before the loop ends', () => {
