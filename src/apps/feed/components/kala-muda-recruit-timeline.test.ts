@@ -13,6 +13,7 @@ import {
   KMR_DURATION,
   KMR_TEAM_CARDS,
   TEAM_ENTER,
+  TEAM_EXIT_LEN,
   TEAM_RISE,
   TEAM_STAGGER,
   batchWindow,

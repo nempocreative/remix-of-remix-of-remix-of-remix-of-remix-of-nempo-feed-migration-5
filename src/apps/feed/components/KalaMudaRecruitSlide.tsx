@@ -32,15 +32,6 @@ import './KalaMudaRecruitSlide.css';
 
 export type KalaMudaRecruitMode = 'team' | 'info';
 
-type TeamCard = { name: string; note: string; photo: string };
-
-const TEAM_CARDS: TeamCard[] = [
-  { name: 'Creative Lead', note: 'Nahkoda ide dan konsep konten', photo: teamMember01 },
-  { name: 'Videographer', note: 'Bikin momen jadi video sinematik', photo: teamMember02 },
-  { name: 'Social Media', note: 'Jaga feed tetap hidup tiap hari', photo: teamMember03 },
-  { name: 'Content Creator', note: 'Ubah ide jadi konten yang viral', photo: teamMember04 },
-  { name: 'Designer', note: 'Racik visual yang bikin berhenti scroll', photo: teamMember05 },
-];
 
 
 /** Every team member on the NEMPO Garut website, in the same order. */
