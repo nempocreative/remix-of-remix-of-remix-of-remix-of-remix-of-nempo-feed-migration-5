@@ -30,6 +30,17 @@
   --ggh-fade: linear-gradient(180deg, color-mix(in srgb, var(--ggh-ink) 35%, transparent) 0%, transparent 18%, transparent 42%, color-mix(in srgb, var(--ggh-ink) 70%, transparent) 64%, color-mix(in srgb, var(--ggh-ink) 92%, transparent) 100%);
   --ggh-glow: 0 .6cqw 3cqw color-mix(in srgb, var(--ggh-ink) 70%, transparent);
 }
+/* GGS Feed slide 24 (3:4): customer service contacts palette. */
+.ggx-root {
+  --ggx-ink: #3d0b2a;
+  --ggx-paper: #fff5fa;
+  --ggx-primary: #a51d5d;
+  --ggx-accent: #ffc9df;
+  --ggx-card: color-mix(in srgb, #fff5fa 94%, transparent);
+  --ggx-card-shadow: 0 2cqw 5cqw color-mix(in srgb, #3d0b2a 45%, transparent);
+  --ggx-glow: 0 .6cqw 3cqw color-mix(in srgb, #3d0b2a 70%, transparent);
+  --ggx-shade: linear-gradient(180deg, color-mix(in srgb, #3d0b2a 55%, transparent) 0%, color-mix(in srgb, #3d0b2a 78%, transparent) 40%, color-mix(in srgb, #3d0b2a 92%, transparent) 100%);
+}
 /* GGS Feed slide 21 (3:4 video): nail art card deck palette. */
 .ggn-root {
   --ggn-ink: #3d0b2a;
