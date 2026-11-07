@@ -1,6 +1,6 @@
 import type { RefObject } from 'react';
-import salonPhoto from '@/assets/ggs-open-hours-hair.jpg';
-import salonVideo from '@/assets/ggs-open-hours-hair-motion.mp4.asset.json';
+import salonPhoto from '@/assets/ggs-open-hours-hair-sweep.jpg';
+import salonVideo from '@/assets/ggs-open-hours-hair-sweep.mp4.asset.json';
 import ggsWatermark from '@/assets/ggs-header-footer-v2.png.asset.json';
 import './GgsOpenHoursSlide.css';
 
@@ -16,7 +16,7 @@ export function GgsOpenHoursSlide({ exportRef }: { exportRef?: RefObject<HTMLEle
         className="ggh-photo"
         src={salonVideo.url}
         poster={salonPhoto}
-        aria-label="Tiga perempuan dari belakang dengan rambut lurus, keriting, dan blow bergerak natural"
+        aria-label="Seorang perempuan dari belakang dengan rambut panjang yang mengibas menyapu latar"
         autoPlay
         muted
         loop
