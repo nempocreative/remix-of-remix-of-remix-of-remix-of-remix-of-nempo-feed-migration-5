@@ -194,7 +194,7 @@ function InfoSlide({ exportRef, slideNumber }: { exportRef?: RefObject<HTMLEleme
         className={`kmr-root kmt-root kmi-root${paused ? ' is-paused' : ''}${reduced ? ' is-reduced' : ''}`}
         data-duration={KMR_DURATION}
         role="img"
-        aria-label={`Gabung Kala Muda Creative Team. Siapa yang bisa daftar: ${INFO_WHO.join(', ')}. Pilihan divisi: ${INFO_DIVISIONS.join(', ')}. Cara daftar: ${INFO_STEPS.join('; ')}. Daftar via WhatsApp 0857-2498-1356.`}
+        aria-label={`Gabung Kala Muda Creative Team. Siapa yang bisa daftar: ${INFO_WHO.join(', ')}. Pilihan divisi: ${INFO_DIVISIONS.join(', ')}. Cara daftar: ${INFO_STEPS.join('; ')}. Daftar di www.nempogarut.com.`}
       >
         <TeamBackdrop icons={false} />
         <NempoHeader badge="OPEN RECRUITMENT" />
@@ -229,7 +229,7 @@ function InfoSlide({ exportRef, slideNumber }: { exportRef?: RefObject<HTMLEleme
           </ol>
         </section>
         <p className="kmi-cta" aria-hidden="true">
-          Daftar via WhatsApp <strong>0857-2498-1356</strong>
+          Daftar di <strong>www.nempogarut.com</strong>
         </p>
         <NempoFooter />
       </div>
