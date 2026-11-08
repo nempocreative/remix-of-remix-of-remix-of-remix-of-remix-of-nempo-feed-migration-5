@@ -4,4 +4,4 @@
 - [x] Slide 35: header/footer seperti slide 20, latar desain grafis (bukan foto), kartu tim muncul bersamaan
 - [ ] Slide 35: buat ulang video unduhan (tunggu persetujuan owner)
 - [x] GGS slide 25: promo nail art mulai 35.000 (foto owner diperbagus)
-- [x] NEMPO slide 37: kegiatan Kala Muda dengan foto asli website NEMPO Garut, header/footer seperti 35–36, dan PNG sesuai preview.
+- [ ] NEMPO slide 37: ganti kolase dengan video animasi lima kegiatan, sampul penuh, dan unduhan sesuai preview.
