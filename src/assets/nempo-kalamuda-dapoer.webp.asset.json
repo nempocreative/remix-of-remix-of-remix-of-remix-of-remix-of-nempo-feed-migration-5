@@ -1,11 +1,11 @@
 {
-  "version": 1,
   "asset_id": "a5ff63ec-0190-430a-9fa9-895cef976134",
-  "project_id": "600cedd0-4533-46a2-9a9e-de2a1a84f8c8",
-  "url": "/__l5e/assets-v1/a5ff63ec-0190-430a-9fa9-895cef976134/nempo-kalamuda-dapoer.webp",
-  "r2_key": "a/v1/600cedd0-4533-46a2-9a9e-de2a1a84f8c8/a5ff63ec-0190-430a-9fa9-895cef976134/nempo-kalamuda-dapoer.webp",
-  "original_filename": "nempo-kalamuda-dapoer.webp",
-  "size": 89074,
   "content_type": "image/webp",
-  "created_at": "2026-11-08T11:16:30Z"
+  "created_at": "2026-11-08T11:16:30Z",
+  "original_filename": "nempo-kalamuda-dapoer.webp",
+  "project_id": "2027c8bf-2361-499c-bd4a-1923da998690",
+  "r2_key": "a/v1/2027c8bf-2361-499c-bd4a-1923da998690/a5ff63ec-0190-430a-9fa9-895cef976134/nempo-kalamuda-dapoer.webp",
+  "size": 89074,
+  "url": "/__l5e/assets-v1/a5ff63ec-0190-430a-9fa9-895cef976134/nempo-kalamuda-dapoer.webp",
+  "version": 1
 }
