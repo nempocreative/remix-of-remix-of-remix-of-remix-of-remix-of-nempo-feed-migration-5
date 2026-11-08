@@ -1,11 +1,11 @@
 {
-  "asset_id": "414bd422-3a5c-4e32-b3c8-7fb3bff0ad7a",
-  "content_type": "image/png",
-  "created_at": "2026-11-08T11:09:34Z",
-  "original_filename": "nempo-feed-37-kala-muda-kegiatan.png",
+  "version": 1,
+  "asset_id": "97b55b46-abde-476a-b87d-4f90f5ab6dc0",
   "project_id": "2027c8bf-2361-499c-bd4a-1923da998690",
-  "r2_key": "a/v1/2027c8bf-2361-499c-bd4a-1923da998690/414bd422-3a5c-4e32-b3c8-7fb3bff0ad7a/nempo-feed-37-kala-muda-kegiatan.png",
-  "size": 1744365,
-  "url": "/__l5e/assets-v1/414bd422-3a5c-4e32-b3c8-7fb3bff0ad7a/nempo-feed-37-kala-muda-kegiatan.png",
-  "version": 1
+  "url": "/__l5e/assets-v1/97b55b46-abde-476a-b87d-4f90f5ab6dc0/nempo-feed-slide-37-cover.png",
+  "r2_key": "a/v1/2027c8bf-2361-499c-bd4a-1923da998690/97b55b46-abde-476a-b87d-4f90f5ab6dc0/nempo-feed-slide-37-cover.png",
+  "original_filename": "nempo-feed-slide-37-cover.png",
+  "size": 1358684,
+  "content_type": "image/png",
+  "created_at": "2026-11-08T12:29:10Z"
 }
