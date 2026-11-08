@@ -97,7 +97,7 @@ function KmrHeader() {
 }
 
 /** Slide 35 header/footer, matching the Nempo Feed story slides (e.g. slide 20). */
-function NempoHeader({ badge }: { badge: string }) {
+export function NempoHeader({ badge }: { badge: string }) {
   return (
     <header className="kmt-header">
       <span className="kmt-brand">
@@ -114,7 +114,7 @@ function NempoHeader({ badge }: { badge: string }) {
   );
 }
 
-function NempoFooter() {
+export function NempoFooter() {
   return (
     <footer className="kmt-footer">
       <span className="kmt-pill kmt-pill-wa"><FaWhatsapp aria-hidden="true" />0857 2498 1356</span>

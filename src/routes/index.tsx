@@ -6,9 +6,9 @@ export const Route = createFileRoute("/")({
   },
   head: () => ({
     meta: [
-      { title: "Nempo Feed" },
+      { title: "NEMPO Garut — Studio Konten" },
       { name: "description", content: "Koleksi slide, animasi dan konten kreatif Nempo Organizer Garut." },
-      { property: "og:title", content: "Nempo Feed" },
+      { property: "og:title", content: "NEMPO Garut — Studio Konten" },
       { property: "og:description", content: "Koleksi slide, animasi dan konten kreatif Nempo Organizer Garut." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

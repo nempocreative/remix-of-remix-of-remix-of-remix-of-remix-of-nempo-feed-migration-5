@@ -6,6 +6,7 @@ import slide35VideoAsset from '@/assets/nempo-feed-slide-35.mp4.asset.json';
 import slide36VideoAsset from '@/assets/nempo-feed-slide-36.mp4.asset.json';
 import slide35PngAsset from '@/assets/nempo-feed-slide-35.png.asset.json';
 import slide36PngAsset from '@/assets/nempo-feed-slide-36.png.asset.json';
+import slide37PngAsset from '@/assets/nempo-feed-slide-37.png.asset.json';
 import ggsRatusVideo from '@/assets/ggs-feed-07-ratus-hq.mp4.asset.json';
 import ggsNailCardsVideo from '@/assets/ggs-feed-21-nail-art.mp4.asset.json';
 import ggsHairCardsVideo from '@/assets/ggs-feed-22-model-rambut.mp4.asset.json';
@@ -139,6 +140,7 @@ import { GgsKidTreatmentSlide } from './components/GgsKidTreatmentSlide';
 import { GgsServicesSlide, GGS_SERVICES_SLIDES } from './components/GgsServicesSlide';
 import { GgsRatusPromoSlide } from './components/GgsRatusPromoSlide';
 import { KalaMudaRecruitSlide } from './components/KalaMudaRecruitSlide';
+import { KalaMudaActivitiesSlide } from './components/KalaMudaActivitiesSlide';
 
 const SpreadsheetViewer = lazy(async () => {
   const module = await import('./components/SpreadsheetViewer');
@@ -182,7 +184,8 @@ type FeedSlide =
   | 33
   | 34
   | 35
-  | 36;
+  | 36
+  | 37;
 
 type ClientSlide = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | 21 | 22 | 23 | 24 | 25 | 26;
 
@@ -2797,7 +2800,7 @@ function App() {
   const exportRef = useRef<HTMLElement | null>(null);
   const isNempoFeed = activeFeed === 'nempo';
   const isHighQualityNempoStorySlide =
-    isNempoFeed && activeSlide >= 20 && activeSlide <= 36;
+    isNempoFeed && activeSlide >= 20 && activeSlide <= 37;
   const isCoupon = activeFeed === 'coupon';
   const isQCard = activeFeed === 'qcard';
   const isRundown = activeFeed === 'rundown';
@@ -2936,7 +2939,7 @@ function App() {
           highQualityCanvas.height,
         );
         renderedCanvas = highQualityCanvas;
-      } else if (isNempoFeed && (activeSlide === 30 || activeSlide === 31 || activeSlide === 32 || activeSlide === 33 || activeSlide === 34 || activeSlide === 35 || activeSlide === 36)) {
+      } else if (isNempoFeed && (activeSlide === 30 || activeSlide === 31 || activeSlide === 32 || activeSlide === 33 || activeSlide === 34 || activeSlide === 35 || activeSlide === 36 || activeSlide === 37)) {
         const artworkWidth = artwork.getBoundingClientRect().width;
         const scale = (outputWidth / artworkWidth) * renderScale;
         renderedCanvas = await domToCanvas(artwork, {
@@ -3101,7 +3104,7 @@ function App() {
       ? isGgsStory
         ? [1, 2, 3, 4, 5]
         : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
-      : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36];
+      : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37];
   const selectedSlide =
     isGgsFeed ? activeClientSlide : activeSlide;
 
@@ -3356,6 +3359,14 @@ function App() {
                   PNG {activeClientSlide === 25 || activeClientSlide === 26 ? "1440×1920, teks tajam" : "3240×4320"}. Di iPad/iPhone pilih “Simpan Gambar” atau “Simpan ke File”; jika gambar terbuka, tekan lama lalu Simpan.
                 </p>
               </>
+            ) : isNempoFeed && activeSlide === 37 ? (
+              <PrebuiltPngDownload
+                key="nempo-feed-37"
+                src={slide37PngAsset.url}
+                fileName="Nempo-Feed-Slide-37-Kala-Muda-Kegiatan.png"
+                label="Download PNG"
+                className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2 text-xs font-bold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+              />
             ) : isNempoFeed && (activeSlide === 35 || activeSlide === 36) ? (
               <>
                 <PrebuiltPngDownload
@@ -3402,7 +3413,7 @@ function App() {
                   ? 'Menyiapkan PNG…'
                   : isCalendar
                     ? 'Download PNG · 50×70 cm'
-                    : isNempoFeed && (activeSlide === 30 || activeSlide === 31 || activeSlide === 32 || activeSlide === 33 || activeSlide === 34 || activeSlide === 35 || activeSlide === 36)
+                    : isNempoFeed && (activeSlide === 30 || activeSlide === 31 || activeSlide === 32 || activeSlide === 33 || activeSlide === 34 || activeSlide === 35 || activeSlide === 36 || activeSlide === 37)
                       ? 'Download PNG · 3×'
                     : isPhotobooth || isGgsFeed || isHighQualityNempoStorySlide
                       ? 'Download PNG · 3×'
@@ -3501,6 +3512,8 @@ function App() {
             isStory={isGgsStory}
             slide={activeClientSlide}
           />
+        ) : isNempoFeed && activeSlide === 37 ? (
+          <KalaMudaActivitiesSlide exportRef={exportRef} />
         ) : isNempoFeed && (activeSlide === 35 || activeSlide === 36) ? (
           <KalaMudaRecruitSlide
             mode={activeSlide === 36 ? 'info' : 'team'}
