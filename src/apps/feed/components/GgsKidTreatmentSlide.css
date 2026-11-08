@@ -12,8 +12,8 @@
 .ggkt-points li::before{content:'';width:1.5cqw;height:1.5cqw;border-radius:50%;background:var(--ggkt-primary);box-shadow:0 0 0 .5cqw var(--ggkt-blush)}
 .ggkt-arch{position:absolute;z-index:1;left:33cqw;top:47cqw;width:61cqw;height:70cqw;margin:0;padding:1.1cqw;border-radius:30.5cqw 30.5cqw 4cqw 4cqw;background:var(--ggkt-frame);box-shadow:var(--ggkt-shadow)}
 .ggkt-arch img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 62%;border-radius:29.4cqw 29.4cqw 3cqw 3cqw}
-.ggkt-card{position:absolute;z-index:2;left:5cqw;top:73cqw;width:31cqw;margin:0;padding:1.1cqw 1.1cqw 0;border-radius:2.4cqw;background:var(--ggkt-frame);box-shadow:var(--ggkt-shadow);transform:rotate(-5deg)}
-.ggkt-card img{display:block;width:100%;aspect-ratio:3/4;object-fit:cover;object-position:40% 62%;border-radius:1.5cqw}
+.ggkt-card{position:absolute;z-index:2;left:5.5cqw;top:74.5cqw;width:29cqw;margin:0;padding:1.1cqw 1.1cqw 0;border-radius:2.4cqw;background:var(--ggkt-frame);box-shadow:var(--ggkt-shadow);transform:rotate(-5deg)}
+.ggkt-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:40% 60%;border-radius:1.5cqw}
 .ggkt-card figcaption{padding:1.2cqw 0 1.4cqw;text-align:center;font-family:'Caveat',cursive;font-size:3.6cqw;font-weight:700;line-height:1;color:var(--ggkt-primary)}
 .ggkt-badge{position:absolute;z-index:2;right:3.4cqw;top:44.5cqw;width:15cqw;height:15cqw;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--ggkt-gold);color:var(--ggkt-paper);box-shadow:var(--ggkt-shadow);transform:rotate(8deg);outline:.35cqw dashed color-mix(in srgb,var(--ggkt-paper) 70%,transparent);outline-offset:-1.3cqw}
 .ggkt-badge span{font-size:2cqw;font-weight:700;text-transform:uppercase;letter-spacing:.3cqw;line-height:1}
