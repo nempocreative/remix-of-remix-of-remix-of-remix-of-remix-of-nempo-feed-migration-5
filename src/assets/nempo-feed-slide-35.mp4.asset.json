@@ -1,11 +1,11 @@
 {
-  "asset_id": "f2286551-350c-4261-b69e-25f056c616a9",
-  "content_type": "video/mp4",
-  "created_at": "2026-11-07T20:52:37Z",
-  "original_filename": "nempo-feed-slide-35.mp4",
+  "version": 1,
+  "asset_id": "64c2dff2-685c-493d-9d66-f711c572dca6",
   "project_id": "508436e4-391a-4205-a968-2138080a11d8",
-  "r2_key": "a/v1/508436e4-391a-4205-a968-2138080a11d8/f2286551-350c-4261-b69e-25f056c616a9/nempo-feed-slide-35.mp4",
-  "size": 5885551,
-  "url": "/__l5e/assets-v1/f2286551-350c-4261-b69e-25f056c616a9/nempo-feed-slide-35.mp4",
-  "version": 1
+  "url": "/__l5e/assets-v1/64c2dff2-685c-493d-9d66-f711c572dca6/nempo-feed-35-kala-muda-team-hd.mp4",
+  "r2_key": "a/v1/508436e4-391a-4205-a968-2138080a11d8/64c2dff2-685c-493d-9d66-f711c572dca6/nempo-feed-35-kala-muda-team-hd.mp4",
+  "original_filename": "nempo-feed-35-kala-muda-team-hd.mp4",
+  "size": 7983094,
+  "content_type": "video/mp4",
+  "created_at": "2026-11-08T05:51:01Z"
 }

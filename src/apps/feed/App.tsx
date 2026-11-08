@@ -4,6 +4,8 @@ import slide33VideoAsset from '@/assets/nempo-feed-slide-33.mp4.asset.json';
 import slide34VideoAsset from '@/assets/nempo-feed-slide-34.mp4.asset.json';
 import slide35VideoAsset from '@/assets/nempo-feed-slide-35.mp4.asset.json';
 import slide36VideoAsset from '@/assets/nempo-feed-slide-36.mp4.asset.json';
+import slide35PngAsset from '@/assets/nempo-feed-slide-35.png.asset.json';
+import slide36PngAsset from '@/assets/nempo-feed-slide-36.png.asset.json';
 import ggsRatusVideo from '@/assets/ggs-feed-07-ratus-hq.mp4.asset.json';
 import ggsNailCardsVideo from '@/assets/ggs-feed-21-nail-art.mp4.asset.json';
 import ggsHairCardsVideo from '@/assets/ggs-feed-22-model-rambut.mp4.asset.json';
@@ -3348,6 +3350,19 @@ function App() {
                   PNG {activeClientSlide === 25 ? "1440×1920, teks tajam" : "3240×4320"}. Di iPad/iPhone pilih “Simpan Gambar” atau “Simpan ke File”; jika gambar terbuka, tekan lama lalu Simpan.
                 </p>
               </>
+            ) : isNempoFeed && (activeSlide === 35 || activeSlide === 36) ? (
+              <>
+                <PrebuiltPngDownload
+                  key={`nempo-feed-${activeSlide}`}
+                  src={activeSlide === 35 ? slide35PngAsset.url : slide36PngAsset.url}
+                  fileName={activeSlide === 35 ? 'Nempo-Feed-Slide-35-Kala-Muda-Team.png' : 'Nempo-Feed-Slide-36-Kala-Muda-Daftar.png'}
+                  label="Download PNG · 3×"
+                  className="inline-flex items-center gap-2 rounded-full bg-[#062f4d] px-4 py-2 text-[11px] font-black text-white shadow-[0_8px_20px_rgba(0,40,78,0.2)] transition-colors hover:bg-[#0b4d69] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffdd00] focus-visible:ring-offset-2"
+                />
+                <p className="max-w-[92vw] text-center text-[10px] font-medium text-slate-600">
+                  PNG 3240×4320, teks tajam. Di iPad/iPhone pilih “Simpan Gambar” atau “Simpan ke File”.
+                </p>
+              </>
             ) : preparedNempoPng?.key === currentDownloadKey ? (
               <>
                 <a
@@ -3414,7 +3429,7 @@ function App() {
                   Download video · MP4
                 </a>
                 <p className="max-w-[92vw] text-center text-[10px] font-medium text-slate-600">
-                  Video 15 detik · 1080×1440 · 30 fps, persis seperti pratinjau.
+                  Video 15 detik · 1080×1440 · 30 fps · kualitas tinggi, persis seperti pratinjau.
                 </p>
               </>
             )}
