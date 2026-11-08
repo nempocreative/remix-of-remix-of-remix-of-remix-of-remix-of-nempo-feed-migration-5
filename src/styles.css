@@ -57,13 +57,9 @@
 .ggkt-root {
   --ggkt-ink: #3d0b2a;
   --ggkt-ink-soft: #7a3a5c;
-  --ggkt-paper: #fff5fa;
-  --ggkt-blush: #ffd9e8;
-  --ggkt-primary: #c2185b;
-  --ggkt-gold: #c9973a;
-  --ggkt-frame: #ffffff;
-  --ggkt-shadow: 0 1.4cqw 4cqw color-mix(in srgb, #5a0f36 24%, transparent);
-  --ggkt-bg: radial-gradient(ellipse 70% 45% at 78% 72%, color-mix(in srgb, #ffc9df 70%, transparent) 0%, transparent 70%), radial-gradient(ellipse 55% 35% at 12% 30%, color-mix(in srgb, #ffe7c2 60%, transparent) 0%, transparent 70%), linear-gradient(180deg, #fff5fa 0%, #ffeef5 100%);
+  --ggkt-paper: #fbf3f6;
+  --ggkt-primary: #b0185a;
+  --ggkt-line: color-mix(in srgb, #3d0b2a 16%, transparent);
 }
 /* GGS Feed slide 21 (3:4 video): nail art card deck palette. */
 .ggn-root {

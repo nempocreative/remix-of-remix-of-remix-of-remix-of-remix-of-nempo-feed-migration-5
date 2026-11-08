@@ -1,21 +1,13 @@
 .ggkt-root{position:relative;isolation:isolate;width:100%;aspect-ratio:3/4;overflow:hidden;container-type:inline-size;background:var(--ggkt-paper);font-family:'DM Sans',sans-serif;color:var(--ggkt-ink)}
-.ggkt-glow{position:absolute;inset:0;background:var(--ggkt-bg)}
-.ggkt-copy{position:absolute;z-index:2;left:6cqw;right:6cqw;top:21cqw;display:flex;flex-direction:column;align-items:center;text-align:center}
-.ggkt-kicker{margin:0;padding:.9cqw 2.8cqw;border-radius:99cqw;background:var(--ggkt-primary);color:var(--ggkt-paper);font-size:2.1cqw;font-weight:700;text-transform:uppercase;letter-spacing:.45cqw}
-.ggkt-title{margin:2.2cqw 0 0;display:flex;flex-direction:column;align-items:center;font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:7.4cqw;line-height:1.06;color:var(--ggkt-ink)}
+.ggkt-copy{position:absolute;z-index:2;left:6cqw;right:6cqw;top:22cqw;display:flex;flex-direction:column;align-items:center;text-align:center}
+.ggkt-kicker{margin:0;font-size:2.1cqw;font-weight:700;text-transform:uppercase;letter-spacing:.6cqw;color:var(--ggkt-primary)}
+.ggkt-title{margin:2cqw 0 0;display:flex;flex-direction:column;align-items:center;font-family:'Playfair Display',Georgia,serif;font-weight:600;font-size:7.2cqw;line-height:1.06;color:var(--ggkt-ink)}
 .ggkt-title span,.ggkt-title em{white-space:nowrap}
 .ggkt-title em{font-style:italic;font-weight:500;color:var(--ggkt-primary)}
-.ggkt-note{position:absolute;z-index:2;left:6cqw;top:49cqw;width:24cqw;margin:0;font-size:2.5cqw;font-weight:600;line-height:1.3;color:var(--ggkt-ink-soft)}
-.ggkt-note-rule{display:block;width:8cqw;height:.3cqw;margin-top:1.6cqw;border-radius:99cqw;background:var(--ggkt-gold)}
-.ggkt-points{position:absolute;z-index:2;left:6cqw;top:59.5cqw;margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:1cqw}
-.ggkt-points li{display:flex;align-items:center;gap:1.2cqw;font-size:2.4cqw;font-weight:700;color:var(--ggkt-ink)}
-.ggkt-points li::before{content:'';width:1.5cqw;height:1.5cqw;border-radius:50%;background:var(--ggkt-primary);box-shadow:0 0 0 .5cqw var(--ggkt-blush)}
-.ggkt-arch{position:absolute;z-index:1;left:33cqw;top:47cqw;width:61cqw;height:70cqw;margin:0;padding:1.1cqw;border-radius:30.5cqw 30.5cqw 4cqw 4cqw;background:var(--ggkt-frame);box-shadow:var(--ggkt-shadow)}
-.ggkt-arch img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 62%;border-radius:29.4cqw 29.4cqw 3cqw 3cqw}
-.ggkt-card{position:absolute;z-index:2;left:5.5cqw;top:74.5cqw;width:29cqw;margin:0;padding:1.1cqw 1.1cqw 0;border-radius:2.4cqw;background:var(--ggkt-frame);box-shadow:var(--ggkt-shadow);transform:rotate(-5deg)}
-.ggkt-card img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:40% 60%;border-radius:1.5cqw}
-.ggkt-card figcaption{padding:1.2cqw 0 1.4cqw;text-align:center;font-family:'Caveat',cursive;font-size:3.6cqw;font-weight:700;line-height:1;color:var(--ggkt-primary)}
-.ggkt-badge{position:absolute;z-index:2;right:3.4cqw;top:44.5cqw;width:15cqw;height:15cqw;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:var(--ggkt-gold);color:var(--ggkt-paper);box-shadow:var(--ggkt-shadow);transform:rotate(8deg);outline:.35cqw dashed color-mix(in srgb,var(--ggkt-paper) 70%,transparent);outline-offset:-1.3cqw}
-.ggkt-badge span{font-size:2cqw;font-weight:700;text-transform:uppercase;letter-spacing:.3cqw;line-height:1}
-.ggkt-badge strong{margin-top:.4cqw;font-family:'Playfair Display',Georgia,serif;font-style:italic;font-size:4cqw;font-weight:600;line-height:1}
+.ggkt-side{position:absolute;z-index:2;left:6cqw;top:48cqw;bottom:15.5cqw;width:27cqw;display:flex;flex-direction:column}
+.ggkt-note{margin:0;font-size:2.5cqw;font-weight:500;line-height:1.35;color:var(--ggkt-ink-soft)}
+.ggkt-points{margin:2.4cqw 0 0;padding:0;list-style:none;border-top:.2cqw solid var(--ggkt-line)}
+.ggkt-points li{padding:1.2cqw 0;border-bottom:.2cqw solid var(--ggkt-line);font-size:2.4cqw;font-weight:700;color:var(--ggkt-ink)}
+.ggkt-photo-small{display:block;width:100%;flex:1;min-height:0;margin-top:3cqw;object-fit:cover;object-position:40% 55%;border-radius:1.2cqw}
+.ggkt-photo-main{position:absolute;z-index:1;left:36cqw;right:6cqw;top:48cqw;bottom:15.5cqw;width:auto;height:auto;object-fit:cover;object-position:50% 60%;border-radius:1.2cqw}
 .ggkt-watermark{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:3;pointer-events:none}
