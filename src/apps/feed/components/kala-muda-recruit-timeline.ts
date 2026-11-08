@@ -99,7 +99,7 @@ export const INFO_DIVISIONS = [
 ] as const;
 export const INFO_WHO = ['Pelajar SMP/SMA/SMK', 'Mahasiswa', 'Umum / pekerja'] as const;
 export const INFO_STEPS = [
-  'Isi formulir di nempo.id/komunitas',
+  'Isi formulir di www.nempogarut.com',
   'Formulir terkirim ke WhatsApp kami',
   'Tim Kala Muda menghubungi kamu',
 ] as const;
