@@ -3326,11 +3326,11 @@ function App() {
                   key={activeClientSlide}
                   src={GGS_LAYANAN_PNGS[activeClientSlide] ?? (activeClientSlide === 11 ? ggsPromoSpesialPng : activeClientSlide === 9 ? ggsNailPahlawanPng : activeClientSlide === 19 ? ggsLokerPng : activeClientSlide === 20 ? ggsFeedKidPng.url : activeClientSlide === 24 ? ggsContactPng.url : activeClientSlide === 25 ? ggsPromoNailPng.url : ggsRatusBenefitPng)}
                   fileName={GGS_LAYANAN_PNGS[activeClientSlide] ? `GGS-Feed-${activeClientSlide}-Layanan.png` : activeClientSlide === 11 ? 'GGS-Feed-11-Promo-Spesial.png' : activeClientSlide === 9 ? 'GGS-Feed-09-Nail-Art-Hari-Pahlawan.png' : activeClientSlide === 19 ? 'GGS-Feed-19-Open-Loker.png' : activeClientSlide === 20 ? 'GGS-Feed-20-Peduli-Penampilan.png' : activeClientSlide === 24 ? 'GGS-Feed-24-Customer-Service.png' : activeClientSlide === 25 ? 'GGS-Feed-25-Promo-Nail-Art.png' : 'GGS-Feed-08-Manfaat-Ratus.png'}
-                  label="Download PNG · 3×"
+                  label={activeClientSlide === 25 ? "Download PNG" : "Download PNG · 3×"}
                   className="inline-flex items-center gap-2 rounded-full bg-[#062f4d] px-4 py-2 text-[11px] font-black text-white shadow-[0_8px_20px_rgba(0,40,78,0.2)] transition-colors hover:bg-[#0b4d69] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffdd00] focus-visible:ring-offset-2"
                 />
                 <p className="max-w-[92vw] text-center text-[10px] font-medium text-slate-600">
-                  PNG 3240×4320. Di iPad/iPhone pilih “Simpan Gambar” atau “Simpan ke File”; jika gambar terbuka, tekan lama lalu Simpan.
+                  PNG {activeClientSlide === 25 ? "1440×1920, teks tajam" : "3240×4320"}. Di iPad/iPhone pilih “Simpan Gambar” atau “Simpan ke File”; jika gambar terbuka, tekan lama lalu Simpan.
                 </p>
               </>
             ) : preparedNempoPng?.key === currentDownloadKey ? (
