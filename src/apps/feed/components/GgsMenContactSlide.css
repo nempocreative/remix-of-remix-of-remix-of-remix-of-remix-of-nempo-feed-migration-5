@@ -1,0 +1,16 @@
+.ggmx-root{position:relative;isolation:isolate;width:100%;aspect-ratio:3/4;overflow:hidden;container-type:inline-size;background:var(--ggmx-paper);font-family:'DM Sans',sans-serif;color:var(--ggmx-ink)}
+.ggmx-root *{letter-spacing:0}
+.ggmx-photo{position:absolute;left:0;right:0;top:10cqw;width:100%;height:calc(100% - 10cqw);object-fit:cover;object-position:50% 0%;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14cqw);mask-image:linear-gradient(180deg,transparent 0,#000 14cqw)}
+.ggmx-shade{position:absolute;inset:0;background:var(--ggmx-shade)}
+.ggmx-copy{position:absolute;z-index:2;left:7cqw;right:7cqw;top:27cqw;display:flex;flex-direction:column;align-items:center;text-align:center}
+.ggmx-kicker{margin:0;padding:.9cqw 2.6cqw;border-radius:99cqw;background:var(--ggmx-ink);color:var(--ggmx-gold-light);font-size:2.1cqw;font-weight:800;text-transform:uppercase;letter-spacing:.42cqw !important}
+.ggmx-title{margin:2.6cqw 0 3.6cqw;font-weight:800;font-size:6cqw;line-height:1.1;color:var(--ggmx-ink)}
+.ggmx-title em{display:block;font-style:normal;color:var(--ggmx-gold)}
+.ggmx-list{list-style:none;margin:0;padding:0;display:flex;gap:2cqw;justify-content:center}
+.ggmx-card{display:flex;align-items:center;gap:1.6cqw;padding:1.5cqw 2.6cqw 1.5cqw 1.5cqw;border-radius:99cqw;background:var(--ggmx-card);box-shadow:var(--ggmx-card-shadow);text-align:left}
+.ggmx-icon{flex:none;display:grid;place-items:center;width:6.2cqw;height:6.2cqw;border-radius:50%;background:var(--ggmx-ink);color:var(--ggmx-gold-light);font-size:3.3cqw}
+.ggmx-text{display:flex;flex-direction:column;gap:.3cqw;min-width:0}
+.ggmx-text small{font-size:1.8cqw;font-weight:800;text-transform:uppercase;letter-spacing:.24cqw !important;color:var(--ggmx-gold)}
+.ggmx-text strong{font-size:2.8cqw;font-weight:800;line-height:1.05;white-space:nowrap}
+.ggmx-hours{margin:3cqw 0 0;font-size:2.3cqw;font-weight:700;color:var(--ggmx-ink-soft)}
+.ggmx-watermark{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:3;pointer-events:none}

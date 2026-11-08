@@ -36,6 +36,7 @@ const GGS_LAYANAN_PNGS: Record<number, string> = {
 import ggsPromoSpesialVideo from '@/assets/ggs-feed-10-promo-spesial.mp4';
 import ggsWeAreOpenVideo from '@/assets/ggs-feed-12-we-are-open.mp4';
 import { PrebuiltPngDownload } from './components/PrebuiltPngDownload';
+import ggsMenContactPng from '@/assets/ggs-cowok-02-customer-service.png.asset.json';
 import {
   FaFileExcel,
   FaFileWord,
@@ -125,6 +126,7 @@ import { GgsFeedKidSlide } from './components/GgsFeedKidSlide';
 import { GgsNailCardsSlide } from './components/GgsNailCardsSlide';
 import { GgsHairCardsSlide } from './components/GgsHairCardsSlide';
 import { GgsMenHairCardsSlide } from './components/GgsMenHairCardsSlide';
+import { GgsMenContactSlide } from './components/GgsMenContactSlide';
 import { GgsPromoSpesialSlide } from './components/GgsPromoSpesialSlide';
 import { GgsWeAreOpenSlide } from './components/GgsWeAreOpenSlide';
 import { GgsOpenHoursSlide } from './components/GgsOpenHoursSlide';
@@ -2776,6 +2778,7 @@ function App() {
   >('nempo');
   const [activeSlide, setActiveSlide] = useState<FeedSlide>(32);
   const [activeClientSlide, setActiveClientSlide] = useState<ClientSlide>(3);
+  const [ggsMenSlide, setGgsMenSlide] = useState<1 | 2>(1);
   const [isDownloading, setIsDownloading] = useState(false);
   const [preparedNempoPng, setPreparedNempoPng] = useState<{
     url: string;
@@ -3255,7 +3258,19 @@ function App() {
             Q Card MC
           </button>
         </div>
-        {isGgsMen && <div className="mb-3"><Button asChild><a href={ggsMenVideo.url} download="GGS-Cowok-Pilihan-Rambut.mp4"><Download className="h-4 w-4" aria-hidden="true" />Download video · MP4 1440×1920</a></Button></div>}
+        {isGgsMen && ggsMenSlide === 2 && (
+          <div className="mb-3 flex flex-col items-center gap-2">
+            <PrebuiltPngDownload
+              key="ggs-men-02"
+              src={ggsMenContactPng.url}
+              fileName="GGS-Cowok-02-Customer-Service.png"
+              label="Download PNG"
+              className="inline-flex items-center gap-2 rounded-full bg-[#062f4d] px-4 py-2 text-[11px] font-black text-white shadow-[0_8px_20px_rgba(0,40,78,0.2)] transition-colors hover:bg-[#0b4d69] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#ffdd00] focus-visible:ring-offset-2"
+            />
+            <p className="max-w-[92vw] text-center text-[10px] font-medium text-slate-600">PNG 1440×1920, teks tajam. Di iPad/iPhone pilih “Simpan Gambar” atau “Simpan ke File”.</p>
+          </div>
+        )}
+        {isGgsMen && ggsMenSlide === 1 && <div className="mb-3"><Button asChild><a href={ggsMenVideo.url} download="GGS-Cowok-Pilihan-Rambut.mp4"><Download className="h-4 w-4" aria-hidden="true" />Download video · MP4 1440×1920</a></Button></div>}
         {!isGgsMen && !isCoupon && !isQCard && !isSpreadsheet && !isRundown && !isBumper && (
           <div className="mb-3 flex flex-col items-center gap-2">
             {activeFeed === 'client' && activeClientSlide === 12 ? (
@@ -3458,7 +3473,7 @@ function App() {
         ) : isCalendar ? (
           <Ggs2027Calendar exportRef={exportRef} />
         ) : isGgsMen ? (
-          <GgsMenHairCardsSlide exportRef={exportRef} />
+          ggsMenSlide === 2 ? <GgsMenContactSlide exportRef={exportRef} /> : <GgsMenHairCardsSlide exportRef={exportRef} />
         ) : isGgsFeed ? (
           <ClientFeedArtwork
             exportRef={exportRef}
@@ -3473,6 +3488,22 @@ function App() {
           />
         ) : (
           <FeedArtwork slide={activeSlide} exportRef={exportRef} />
+        )}
+        {isGgsMen && (
+          <div className="mt-4 flex items-center gap-1 rounded-full bg-[#062f4d] p-1 shadow-[0_8px_20px_rgba(0,40,78,0.2)]" aria-label="Pilih slide GGS Cowok">
+            {([1, 2] as const).map((slide) => (
+              <button
+                key={slide}
+                type="button"
+                aria-label={`Tampilkan slide ${String(slide).padStart(2, '0')}`}
+                aria-pressed={ggsMenSlide === slide}
+                onClick={() => setGgsMenSlide(slide)}
+                className={`rounded-full px-3 py-1 text-[10px] font-black transition-colors ${ggsMenSlide === slide ? 'bg-[#ffdd00] text-[#062f4d]' : 'text-white/75 hover:text-white'}`}
+              >
+                {String(slide).padStart(2, '0')}
+              </button>
+            ))}
+          </div>
         )}
         {!isGgsMen && !isSpreadsheet && !isRundown && !isBumper && !isCoupon && !isQCard && !isPhotobooth && !isMemberCard && !isCalendar && <div
           className="mt-4 flex max-w-[94vw] items-center gap-1 overflow-x-auto rounded-full bg-[#062f4d] p-1 shadow-[0_8px_20px_rgba(0,40,78,0.2)] max-[640px]:mb-4 max-[640px]:gap-0.5 max-[640px]:p-0.5"
