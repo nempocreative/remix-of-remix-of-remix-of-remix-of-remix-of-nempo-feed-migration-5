@@ -5,4 +5,4 @@
 - [ ] Slide 35: buat ulang video unduhan (tunggu persetujuan owner)
 - [x] GGS slide 25: promo nail art mulai 35.000 (foto owner diperbagus)
 - [x] NEMPO slide 37: ganti kolase dengan video animasi lima kegiatan, sampul penuh, dan unduhan sesuai preview.
-- [ ] NEMPO slide 37: masukkan semua sembilan foto kegiatan; empat gambar tambahan di website gagal dimuat (nongkrong sore, basecamp, Good Story Cafe, foto bareng tim). Menunggu file foto asli atau tautan gambar yang berfungsi; galeri portofolio berisi poster, bukan foto kegiatan.
+- [ ] NEMPO slide 37: empat foto tambahan sudah diterima dan disimpan; buat ulang animasi seluruh sembilan foto, pasang video dan sampul baru, uji tampilan serta unduhannya.
