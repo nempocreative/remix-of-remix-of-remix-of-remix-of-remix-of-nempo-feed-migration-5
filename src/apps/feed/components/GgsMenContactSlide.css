@@ -1,6 +1,6 @@
 .ggmx-root{position:relative;isolation:isolate;width:100%;aspect-ratio:3/4;overflow:hidden;container-type:inline-size;background:var(--ggmx-paper);font-family:'DM Sans',sans-serif;color:var(--ggmx-ink)}
 .ggmx-root *{letter-spacing:0}
-.ggmx-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 80%}
+.ggmx-photo{position:absolute;left:0;right:0;top:10cqw;width:100%;height:calc(100% - 10cqw);object-fit:cover;object-position:50% 0%}
 .ggmx-shade{position:absolute;inset:0;background:var(--ggmx-shade)}
 .ggmx-copy{position:absolute;z-index:2;left:7cqw;right:7cqw;top:27cqw;display:flex;flex-direction:column;align-items:center;text-align:center}
 .ggmx-kicker{margin:0;padding:.9cqw 2.6cqw;border-radius:99cqw;background:var(--ggmx-ink);color:var(--ggmx-gold-light);font-size:2.1cqw;font-weight:800;text-transform:uppercase;letter-spacing:.42cqw !important}
