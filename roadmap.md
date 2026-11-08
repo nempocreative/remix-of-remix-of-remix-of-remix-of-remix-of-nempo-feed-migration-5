@@ -4,5 +4,5 @@
 - [x] Slide 35: header/footer seperti slide 20, latar desain grafis (bukan foto), kartu tim muncul bersamaan
 - [ ] Slide 35: buat ulang video unduhan (tunggu persetujuan owner)
 - [x] GGS slide 25: promo nail art mulai 35.000 (foto owner diperbagus)
-- [ ] NEMPO slide 37: ganti kolase dengan video animasi lima kegiatan, sampul penuh, dan unduhan sesuai preview.
-- [ ] NEMPO slide 37: ambil semua foto kegiatan di website dan masukkan semuanya ke video.
+- [x] NEMPO slide 37: ganti kolase dengan video animasi lima kegiatan, sampul penuh, dan unduhan sesuai preview.
+- [ ] NEMPO slide 37: masukkan empat foto kegiatan tambahan; terhalang tautan foto website yang tidak mengirim gambar dan proyek sumber tidak dapat diakses. Perlu unggahan foto nongkrong sore, basecamp, Good Story Cafe, dan foto bersama tim.
