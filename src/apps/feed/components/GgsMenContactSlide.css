@@ -12,5 +12,7 @@
 .ggmx-text{display:flex;flex-direction:column;gap:.3cqw;min-width:0}
 .ggmx-text small{font-size:1.8cqw;font-weight:800;text-transform:uppercase;letter-spacing:.24cqw !important;color:var(--ggmx-gold)}
 .ggmx-text strong{font-size:2.8cqw;font-weight:800;line-height:1.05;white-space:nowrap}
-.ggmx-hours{margin:3cqw 0 0;font-size:2.3cqw;font-weight:700;color:var(--ggmx-ink-soft)}
+.ggmx-hours{margin:2.6cqw 0 0;display:flex;gap:1.6cqw;justify-content:center}
+.ggmx-hours p{margin:0;padding:.9cqw 2.2cqw;border-radius:99cqw;background:var(--ggmx-card);box-shadow:var(--ggmx-card-shadow);font-size:2.2cqw;font-weight:800;color:var(--ggmx-ink);white-space:nowrap}
+.ggmx-hours span{margin-right:.8cqw;font-weight:700;color:var(--ggmx-gold)}
 .ggmx-watermark{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;z-index:3;pointer-events:none}
