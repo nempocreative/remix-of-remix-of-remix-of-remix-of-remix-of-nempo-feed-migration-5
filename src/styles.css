@@ -65,6 +65,17 @@
   --ggn-card-shadow: 0 2.4cqw 6cqw color-mix(in srgb, #7a1f4f 26%, transparent), 0 .4cqw 1.2cqw color-mix(in srgb, #7a1f4f 14%, transparent);
   --ggn-sheen: linear-gradient(105deg, transparent 30%, color-mix(in srgb, #ffffff 55%, transparent) 50%, transparent 70%);
 }
+/* GGS Cowok slide 2: customer service palette (charcoal + barber gold). */
+.ggmx-root {
+  --ggmx-ink: #161716;
+  --ggmx-ink-soft: #53574f;
+  --ggmx-paper: #f0f1ed;
+  --ggmx-gold: #947126;
+  --ggmx-gold-light: #e4bd61;
+  --ggmx-card: color-mix(in srgb, #ffffff 94%, transparent);
+  --ggmx-card-shadow: 0 1.2cqw 3.4cqw color-mix(in srgb, #252c22 24%, transparent);
+  --ggmx-shade: linear-gradient(180deg, color-mix(in srgb, #f0f1ed 92%, transparent) 0%, color-mix(in srgb, #f0f1ed 92%, transparent) 36%, color-mix(in srgb, #f0f1ed 60%, transparent) 50%, transparent 64%);
+}
 /* Nempo Feed slides 35–36 (3:4 video): Kala Muda recruitment palette. */
 .ggs-men-tab { --ggm-tab-ink: #ffffff; --ggm-tab-active: #e4bd61; --ggm-ink: #161716; }
 .ggn-root.ggn-men {

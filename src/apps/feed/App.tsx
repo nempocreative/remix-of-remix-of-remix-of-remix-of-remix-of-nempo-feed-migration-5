@@ -125,6 +125,7 @@ import { GgsFeedKidSlide } from './components/GgsFeedKidSlide';
 import { GgsNailCardsSlide } from './components/GgsNailCardsSlide';
 import { GgsHairCardsSlide } from './components/GgsHairCardsSlide';
 import { GgsMenHairCardsSlide } from './components/GgsMenHairCardsSlide';
+import { GgsMenContactSlide } from './components/GgsMenContactSlide';
 import { GgsPromoSpesialSlide } from './components/GgsPromoSpesialSlide';
 import { GgsWeAreOpenSlide } from './components/GgsWeAreOpenSlide';
 import { GgsOpenHoursSlide } from './components/GgsOpenHoursSlide';
@@ -2776,6 +2777,7 @@ function App() {
   >('nempo');
   const [activeSlide, setActiveSlide] = useState<FeedSlide>(32);
   const [activeClientSlide, setActiveClientSlide] = useState<ClientSlide>(3);
+  const [ggsMenSlide, setGgsMenSlide] = useState<1 | 2>(1);
   const [isDownloading, setIsDownloading] = useState(false);
   const [preparedNempoPng, setPreparedNempoPng] = useState<{
     url: string;
@@ -3458,7 +3460,7 @@ function App() {
         ) : isCalendar ? (
           <Ggs2027Calendar exportRef={exportRef} />
         ) : isGgsMen ? (
-          <GgsMenHairCardsSlide exportRef={exportRef} />
+          ggsMenSlide === 2 ? <GgsMenContactSlide exportRef={exportRef} /> : <GgsMenHairCardsSlide exportRef={exportRef} />
         ) : isGgsFeed ? (
           <ClientFeedArtwork
             exportRef={exportRef}
@@ -3473,6 +3475,22 @@ function App() {
           />
         ) : (
           <FeedArtwork slide={activeSlide} exportRef={exportRef} />
+        )}
+        {isGgsMen && (
+          <div className="mt-4 flex items-center gap-1 rounded-full bg-[#062f4d] p-1 shadow-[0_8px_20px_rgba(0,40,78,0.2)]" aria-label="Pilih slide GGS Cowok">
+            {([1, 2] as const).map((slide) => (
+              <button
+                key={slide}
+                type="button"
+                aria-label={`Tampilkan slide ${String(slide).padStart(2, '0')}`}
+                aria-pressed={ggsMenSlide === slide}
+                onClick={() => setGgsMenSlide(slide)}
+                className={`rounded-full px-3 py-1 text-[10px] font-black transition-colors ${ggsMenSlide === slide ? 'bg-[#ffdd00] text-[#062f4d]' : 'text-white/75 hover:text-white'}`}
+              >
+                {String(slide).padStart(2, '0')}
+              </button>
+            ))}
+          </div>
         )}
         {!isGgsMen && !isSpreadsheet && !isRundown && !isBumper && !isCoupon && !isQCard && !isPhotobooth && !isMemberCard && !isCalendar && <div
           className="mt-4 flex max-w-[94vw] items-center gap-1 overflow-x-auto rounded-full bg-[#062f4d] p-1 shadow-[0_8px_20px_rgba(0,40,78,0.2)] max-[640px]:mb-4 max-[640px]:gap-0.5 max-[640px]:p-0.5"
