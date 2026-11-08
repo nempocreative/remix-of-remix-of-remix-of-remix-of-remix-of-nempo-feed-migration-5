@@ -37,7 +37,10 @@ export function GgsMenContactSlide({ exportRef }: { exportRef?: RefObject<HTMLEl
               </li>
             ))}
           </ul>
-          <p className="ggmx-hours">Setiap hari · 09.00 – 21.00</p>
+          <div className="ggmx-hours">
+            <p><span>Senin – Kamis</span> 10.00 – 22.00</p>
+            <p><span>Jumat – Minggu</span> 08.00 – 22.00</p>
+          </div>
         </section>
         <img className="ggmx-watermark" src={overlay.url} alt="" draggable={false} />
       </div>
