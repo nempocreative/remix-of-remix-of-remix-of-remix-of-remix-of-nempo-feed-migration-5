@@ -3255,7 +3255,7 @@ function App() {
             Q Card MC
           </button>
         </div>
-        {isGgsMen && <div className="mb-3"><Button asChild><a href={ggsMenVideo.url} download="GGS-Cowok-Pilihan-Rambut.mp4"><Download className="h-4 w-4" aria-hidden="true" />Download video · MP4</a></Button></div>}
+        {isGgsMen && <div className="mb-3"><Button asChild><a href={ggsMenVideo.url} download="GGS-Cowok-Pilihan-Rambut.mp4"><Download className="h-4 w-4" aria-hidden="true" />Download video · MP4 1440×1920</a></Button></div>}
         {!isGgsMen && !isCoupon && !isQCard && !isSpreadsheet && !isRundown && !isBumper && (
           <div className="mb-3 flex flex-col items-center gap-2">
             {activeFeed === 'client' && activeClientSlide === 12 ? (

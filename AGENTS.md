@@ -31,3 +31,4 @@ use the editor.
 
 - NEMPO Feed is migrated from github.com/nempocreative/nempo-60 as a sub-app in `src/apps/feed`, mounted at `/nempo-feed` (`/` redirects there); why: the owner is migrating that repo section by section.
 - tsconfig strict extras (noUncheckedIndexedAccess, exactOptionalPropertyTypes, etc.) are off to match the source repo; why: migrated code was written without them.
+- GGS prebuilt download files (MP4/PNG asset pointers) are captured from the live preview at 1440×1920 CSS px, dpr 1, root pinned at 0,0, with CSS animations paused and stepped per frame; why: the header/footer overlays are 1440×1920 bitmaps and any rescale blurs their text. Recapture when the slide changes.
