@@ -6,3 +6,5 @@
 - [x] GGS slide 25: promo nail art mulai 35.000 (foto owner diperbagus)
 - [x] NEMPO slide 37: ganti kolase dengan video animasi lima kegiatan, sampul penuh, dan unduhan sesuai preview.
 - [x] NEMPO slide 37: empat foto kiriman ditambahkan; video 28 detik memuat sembilan foto, sampul penuh, tampilan desktop/ponsel dan kedua unduhan teruji sesuai berkas baru.
+- [ ] NEMPO slide 37: ganti judul kegiatan 7 menjadi Band Kala Muda, hapus seluruh ikon bintang, rapikan ikon pembuka, dan perbarui video serta sampul.
+- [ ] NEMPO slide 37: ganti Dapoer Nyunda menjadi Review Makanan dan Good Story Cafe menjadi Meeting Client di video, sampul, serta unduhan.

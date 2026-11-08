@@ -38,7 +38,7 @@ export function KalaMudaActivitiesSlide({ exportRef }: { exportRef?: RefObject<H
         <Button size="icon" variant="outline" title={muted ? 'Nyalakan suara' : 'Matikan suara'} aria-label={muted ? 'Nyalakan suara slide 37' : 'Matikan suara slide 37'} onClick={() => setMuted(!muted)}>{muted ? <VolumeX size={16} /> : <Volume2 size={16} />}</Button>
       </div>
       <div ref={exportRef as RefObject<HTMLDivElement | null>} className="kma-root">
-        <video ref={videoRef} src={videoAsset.url} poster={posterAsset.url} muted={muted} loop playsInline preload="auto" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} aria-label="Kegiatan Kala Muda: tari MusiComedy Night, jamming akustik, podcast malam, Dapoer Nyunda, makan bersama, kumpul di basecamp, nongkrong sore bareng, foto bareng satu tim, nongkrong di Good Story Cafe" />
+        <video ref={videoRef} src={videoAsset.url} poster={posterAsset.url} muted={muted} loop playsInline preload="auto" onPlay={() => setPlaying(true)} onPause={() => setPlaying(false)} aria-label="Kegiatan Kala Muda: tari MusiComedy Night, jamming akustik, podcast malam, Review Makanan, makan bersama, kumpul di basecamp, Band Kala Muda, Meeting Client, foto bareng satu tim" />
       </div>
     </div>
   );
