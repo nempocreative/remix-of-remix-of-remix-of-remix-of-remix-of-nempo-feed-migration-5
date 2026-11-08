@@ -1,10 +1,2 @@
-.kma-root{background:var(--kmr-ink);color:var(--kmt-text)}
-.kma-title{position:absolute;left:7.5cqw;right:7.5cqw;top:22cqw;font-size:6.3cqw;line-height:1.08;font-weight:800}
-.kma-title span{display:block;color:var(--kmr-accent)}
-.kma-photo{position:absolute;left:7.5cqw;width:41cqw;top:40cqw;height:73cqw;overflow:hidden;border-radius:0}
-.kma-photo img,.kma-detail img{display:block;width:100%;height:100%;object-fit:cover}
-.kma-photo img{object-position:center}
-.kma-strip{position:absolute;left:50.5cqw;right:7.5cqw;top:40cqw;height:73cqw;display:grid;grid-template-rows:1fr 1fr;gap:2cqw}
-.kma-detail{overflow:hidden;min-width:0;height:100%}
-.kma-caption{position:absolute;left:7.5cqw;right:7.5cqw;top:115cqw;font-size:2.3cqw;line-height:1.4;font-weight:500;color:var(--kmr-accent-soft)}
-.kma-root .kmt-name *,.kma-root .kmt-badge,.kma-root .kmt-pill strong{letter-spacing:0!important}
+.kma-root{position:relative;width:100%;aspect-ratio:3/4;overflow:hidden;background:var(--kmr-ink)}
+.kma-root video{display:block;width:100%;height:100%;object-fit:contain}

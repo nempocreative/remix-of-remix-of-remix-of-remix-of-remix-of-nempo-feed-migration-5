@@ -7,6 +7,8 @@ import slide36VideoAsset from '@/assets/nempo-feed-slide-36.mp4.asset.json';
 import slide35PngAsset from '@/assets/nempo-feed-slide-35.png.asset.json';
 import slide36PngAsset from '@/assets/nempo-feed-slide-36.png.asset.json';
 import slide37PngAsset from '@/assets/nempo-feed-slide-37.png.asset.json';
+import slide37VideoAsset from '@/assets/nempo-feed-slide-37.mp4.asset.json';
+import { PrebuiltVideoDownload } from './components/PrebuiltVideoDownload';
 import ggsRatusVideo from '@/assets/ggs-feed-07-ratus-hq.mp4.asset.json';
 import ggsNailCardsVideo from '@/assets/ggs-feed-21-nail-art.mp4.asset.json';
 import ggsHairCardsVideo from '@/assets/ggs-feed-22-model-rambut.mp4.asset.json';
@@ -3434,6 +3436,9 @@ function App() {
                   Video 30 detik · 1080×1440 · 30 fps, persis seperti pratinjau.
                 </p>
               </>
+            )}
+            {isNempoFeed && activeSlide === 37 && (
+              <PrebuiltVideoDownload src={slide37VideoAsset.url} fileName="Nempo-Feed-Slide-37-Kala-Muda-Kegiatan.mp4" />
             )}
             {isNempoFeed && (activeSlide === 35 || activeSlide === 36) && (
               <>
